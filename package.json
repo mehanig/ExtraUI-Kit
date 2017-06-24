@@ -1,0 +1,22 @@
+{
+  "name": "extraui-kit",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@types/node": "^7.0.31",
+    "@types/react": "^15.0.28",
+    "@types/react-dom": "^15.5.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "author": "Mike Mehanig",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "LICENSE",
+    "main.js"
+  ],
+  "main": "main.js",
+  "dependencies": {
+    "radium": "^0.19.1"
+  }
+}

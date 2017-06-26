@@ -13,13 +13,20 @@ export interface ValueSliderProps {
 export interface ValueSliderState {
     isDisabled?: boolean;
     title: string | StringFunction;
-    currentValue?: number;
+    currentValue: number;
+    mouseMoveReady: boolean;
+    currentXPos: number;
+    initialXPos?: number;
+    initialSliderValue?: number;
 }
 declare class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     constructor(props: ValueSliderProps);
     _updateStateAndNotify(currentValue: number): void;
     handleOptionChange(changeEvent: React.ChangeEvent<HTMLInputElement>): void;
     handleLiClick(clickEvent: React.MouseEvent<HTMLSpanElement>): void;
+    onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>): void;
+    onMouseMove(mouseEvent: any): void;
+    onMouseUp(mouseEvent: any): void;
     render(): JSX.Element;
 }
 export { _EB_ValueSlider };

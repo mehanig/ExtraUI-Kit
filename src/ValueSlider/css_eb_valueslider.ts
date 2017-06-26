@@ -26,7 +26,7 @@ const main_active: CSSProperties = {
 };
 
 const title: CSSProperties = {
-
+  cursor: 'pointer'
 };
 
 const draggable: CSSProperties = {
@@ -34,6 +34,7 @@ const draggable: CSSProperties = {
   ':hover': {
     color: '#0088FF',
   },
+  cursor: 'pointer',
   marginLeft: 'auto'
 };
 

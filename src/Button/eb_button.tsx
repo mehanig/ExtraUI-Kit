@@ -45,7 +45,7 @@ class _EB_Button extends React.Component<ButtonProps, ButtonState> {
     return <div>
       <StyleRoot>
         <div style={[stylesArr]} onClick={onClick}><p style={[css_p_base]}>{this.state.buttonText}</p></div>
-    </StyleRoot>
+      </StyleRoot>
     </div>
   }
 }

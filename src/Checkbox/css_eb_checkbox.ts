@@ -21,11 +21,11 @@ const li_disabled : CSSProperties = {
   backgroundColor: '#989898'
 };
 
-const ul_base: CSSProperties = {
+const base: CSSProperties = {
   fontSize: 11,
   display: 'flex',
   float: "left",
-  flexDirection: "column",
+  flexDirection: "row",
   margin: '10px',
   color: '#fff',
 };
@@ -56,4 +56,4 @@ const title: CSSProperties = {
   cursor: 'pointer'
 };
 
-export {li_base, li_active, li_disabled, ul_base, text, input, input_disabled, input_active, title}
+export {li_base, li_active, li_disabled, base, text, input, input_disabled, input_active, title}

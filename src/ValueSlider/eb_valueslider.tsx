@@ -18,7 +18,8 @@ export interface ValueSliderProps {
   minValue: number
   title: string | StringFunction,
   currentValue?: number,
-  notifyOnChange?: (string) => void
+  notifyOnChange?: (string) => void,
+  sizeH?: number
 }
 
 export interface ValueSliderState {
@@ -28,7 +29,8 @@ export interface ValueSliderState {
   mouseMoveReady: boolean,
   currentXPos: number,
   initialXPos?: number,
-  initialSliderValue?: number
+  initialSliderValue?: number,
+  isEditBoxMounted: boolean
 }
 
 
@@ -43,6 +45,7 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
       currentValue: props.currentValue ? props.currentValue : (min+max)/2,
       mouseMoveReady: false,
       currentXPos: 0,
+      isEditBoxMounted: false
     }
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
@@ -90,16 +93,31 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
     window.removeEventListener("mouseup", this.onMouseUp)
   }
 
+  mountEditValueBox() : void {
+    const isEditBoxMounted = !this.state.isEditBoxMounted
+    this.setState({isEditBoxMounted})
+  }
+
+  unmountEditValueBoxSave() : void {
+
+  }
+
   render() {
-    const stylesLiArr: [CSSProperties] = this.state.isDisabled ? [css.main_base, css.main_disabled] : [css.main_base, css.main_active];
+    const mainBase: [CSSProperties] = this.props.sizeH ? [css.main_base, {'width': `${this.props.sizeH}px`}] : [css.main_base]
     return <div>
       <StyleRoot>
-        <div style={[css.main_base]}>
+        <div style={mainBase}>
           <span style={[css.title]}>{this.state.title}</span>
-          <span style={[css.draggable]}
-                onMouseDown={e=>{this.onMouseDown(e)}}
-                onMouseMove={e=>{this.onMouseMove(e)}}
-                onMouseUp={e=>{this.onMouseUp(e)}}>{this.state.currentValue}</span>
+          {!this.state.isEditBoxMounted ?
+            (<span style={[css.draggable]}
+                  onMouseDown={e=>{this.onMouseDown(e)}}
+                  onMouseMove={e=>{this.onMouseMove(e)}}
+                  onDoubleClick={e=>{this.mountEditValueBox()}}
+                  onMouseUp={e=>{this.onMouseUp(e)}}>{this.state.currentValue}</span>) :
+            (<span style={[css.draggable]} onClick={e=>{this.unmountEditValueBoxSave()}}>
+              <input style={[css.input_field]}/>
+            </span>)
+          }
         </div>
       </StyleRoot>
     </div>

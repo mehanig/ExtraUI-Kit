@@ -4,4 +4,5 @@ declare const main_disabled: CSSProperties;
 declare const main_active: CSSProperties;
 declare const title: CSSProperties;
 declare const draggable: CSSProperties;
-export { main_base, main_disabled, main_active, title, draggable };
+declare const input_field: CSSProperties;
+export { main_base, main_disabled, main_active, title, draggable, input_field };

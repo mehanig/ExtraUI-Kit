@@ -51,7 +51,11 @@ const main_base2: CSSProperties = {
   color: '#fff',
 };
 
+const input_field: CSSProperties = {
+  width: '50px'
+}
 
 
 
-export {main_base, main_disabled, main_active, title, draggable}
+
+export {main_base, main_disabled, main_active, title, draggable, input_field}

@@ -9,6 +9,7 @@ export interface ValueSliderProps {
     title: string | StringFunction;
     currentValue?: number;
     notifyOnChange?: (string) => void;
+    sizeH?: number;
 }
 export interface ValueSliderState {
     isDisabled?: boolean;
@@ -18,6 +19,7 @@ export interface ValueSliderState {
     currentXPos: number;
     initialXPos?: number;
     initialSliderValue?: number;
+    isEditBoxMounted: boolean;
 }
 declare class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     constructor(props: ValueSliderProps);
@@ -25,6 +27,8 @@ declare class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSli
     onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>): void;
     onMouseMove(mouseEvent: any): void;
     onMouseUp(mouseEvent: any): void;
+    mountEditValueBox(): void;
+    unmountEditValueBoxSave(): void;
     render(): JSX.Element;
 }
 export { _EB_ValueSlider };

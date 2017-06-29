@@ -51,20 +51,13 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
   _updateStateAndNotify(currentValue: number) {
     if (!this.state.isDisabled) {
       if (this.props.notifyOnChange) {
-        this.props.notifyOnChange(currentValue)
+        this.setState({currentValue}, () => {
+          this.props.notifyOnChange(currentValue)
+        })
+      } else {
+        this.setState({currentValue})
       }
-      this.setState({currentValue})
     }
-  }
-
-  handleOptionChange(changeEvent: React.ChangeEvent<HTMLInputElement>) : void {
-    const safeSearchTypeValue: number =  parseInt(changeEvent.currentTarget.value)
-    this._updateStateAndNotify(safeSearchTypeValue)
-  }
-
-  handleLiClick(clickEvent: React.MouseEvent<HTMLSpanElement>) : void {
-    const safeSearchTypeValue: number = parseInt(clickEvent.currentTarget.getAttribute('value'))
-    this._updateStateAndNotify(safeSearchTypeValue)
   }
 
   onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>) : void {
@@ -84,9 +77,8 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
       const initialValue = this.state.initialSliderValue
       const initialX = this.state.initialXPos
       const currX = mouseEvent.pageX
-      this.setState({
-        currentValue: initialValue + currX - initialX
-      })
+      const currValue = initialValue + currX - initialX
+      this._updateStateAndNotify(currValue)
     }
   }
 

@@ -48,9 +48,12 @@ class _EB_RadioButtonList extends React.Component<RadioButtonProps, RadioButtonS
   _updateStateAndNotify(selectedOption: string) {
     if (!this.state.isDisabled) {
       if (this.props.notifyOnChange) {
-        this.props.notifyOnChange(selectedOption);
+        this.setState({selectedOption}, () => {
+          this.props.notifyOnChange(selectedOption);
+        })
+      } else {
+        this.setState({selectedOption});
       }
-      this.setState({selectedOption});
     }
   }
 

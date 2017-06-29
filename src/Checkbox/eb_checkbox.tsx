@@ -39,18 +39,21 @@ class _EB_Checkbox extends React.Component<CheckboxProps, CheckboxState> {
   _updateStateAndNotify(isSelected: boolean) {
     if (!this.state.isDisabled) {
       if (this.props.notifyOnChange) {
-        this.props.notifyOnChange(isSelected);
+        this.setState({isSelected}, () => {
+          this.props.notifyOnChange(isSelected);
+        })
+      } else {
+        this.setState({isSelected});
       }
-      this.setState({isSelected});
     }
   }
 
   handleOptionChange() : void {
-    this._updateStateAndNotify(this.state.isSelected);
+    this._updateStateAndNotify(!this.state.isSelected);
   }
 
   handleNameClick() : void {
-    this._updateStateAndNotify(this.state.isSelected);
+    this._updateStateAndNotify(!this.state.isSelected);
   }
 
   render() {

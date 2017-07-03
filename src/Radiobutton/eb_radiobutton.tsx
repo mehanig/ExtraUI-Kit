@@ -2,10 +2,10 @@ import * as React from "react";
 
 // TODO: import Radium from "radium"; doesn't work WAT??
 // import Radium from "radium";
-let Radium = require('radium');
-import {StyleRoot} from 'radium';
-import {CSSProperties} from '../css_types';
-import * as css from './css_eb_radiobutton'
+let Radium = require("radium");
+import {StyleRoot} from "radium";
+import {CSSProperties} from "../css_types"
+import * as css from "./css_eb_radiobutton"
 
 export type StringFunction = () => string;
 
@@ -63,7 +63,7 @@ class _EB_RadioButtonList extends React.Component<RadioButtonProps, RadioButtonS
   }
 
   handleLiClick(clickEvent: React.MouseEvent<HTMLSpanElement>) : void {
-    const safeSearchTypeValue: string = clickEvent.currentTarget.getAttribute('value');
+    const safeSearchTypeValue: string = clickEvent.currentTarget.getAttribute("value");
     this._updateStateAndNotify(safeSearchTypeValue);
   }
 

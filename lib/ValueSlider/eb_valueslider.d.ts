@@ -21,7 +21,7 @@ export interface ValueSliderState {
     initialSliderValue?: number;
     isEditBoxMounted: boolean;
 }
-declare class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
+declare class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     constructor(props: ValueSliderProps);
     _updateStateAndNotify(currentValue: number): void;
     onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>): void;
@@ -31,6 +31,6 @@ declare class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSli
     unmountEditValueBoxSave(): void;
     render(): JSX.Element;
 }
-export { _EB_ValueSlider };
-declare let EB_ValueSlider: any;
-export { EB_ValueSlider };
+export { _ValueSlider };
+declare let ValueSlider: any;
+export { ValueSlider };

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Empty Button renders correctly 1`] = `
+<div>
+  <div
+    data-radium={true}
+  >
+    <div
+      data-radium={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "alignContent": "center",
+          "backgroundColor": "#2391FF",
+          "border": 0,
+          "borderRadius": "2px",
+          "color": "#fff",
+          "cursor": "pointer",
+          "display": "flex",
+          "flexDirection": "column",
+          "fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
+          "fontSize": 11,
+          "height": "22px",
+          "justifyContent": "center",
+          "margin": "10px",
+          "outline": "none",
+          "padding": "2px 2px",
+          "userSelect": "none",
+          "width": "140px",
+        }
+      }
+    >
+      <p
+        data-radium={true}
+        style={
+          Object {
+            "margin": "auto",
+          }
+        }
+      >
+        Button
+      </p>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "",
+        }
+      }
+    />
+  </div>
+</div>
+`;

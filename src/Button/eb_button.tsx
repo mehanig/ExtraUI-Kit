@@ -2,10 +2,10 @@ import * as React from "react";
 
 // TODO: import Radium from "radium"; doesn't work WAT??
 // import Radium from "radium";
-let Radium = require('radium');
-import {StyleRoot} from 'radium';
-import {CSSProperties} from '../css_types';
-import {css_base, css_disabled, css_active, css_p_base} from './css_eb_button'
+let Radium = require("radium");
+import {StyleRoot} from "radium";
+import {CSSProperties} from "../css_types"
+import {css_base, css_disabled, css_active, css_p_base} from "./css_eb_button"
 
 export type StringFunction = () => string;
 

@@ -24,10 +24,10 @@ interface CSSProperties {
   userSelect?: string,
   float?: string,
   listStyle?: string,
-  ':hover'?: Object,
-  ':focus'?: Object,
-  ':active'?: Object,
-  ':checked'?: Object,
+  ":hover"?: Object,
+  ":focus"?: Object,
+  ":active"?: Object,
+  ":checked"?: Object,
 
 }
 

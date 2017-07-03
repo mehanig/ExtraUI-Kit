@@ -2,10 +2,10 @@ import * as React from "react"
 
 // TODO: import Radium from "radium"; doesn't work WAT??
 // import Radium from "radium";
-let Radium = require('radium')
-import {StyleRoot} from 'radium'
-import {CSSProperties} from '../css_types'
-import * as css from './css_eb_valueslider'
+let Radium = require("radium")
+import {StyleRoot} from "radium"
+import {CSSProperties} from "../css_types"
+import * as css from "./css_eb_valueslider"
 
 export type StringFunction = () => string;
 
@@ -34,7 +34,7 @@ export interface ValueSliderState {
 }
 
 
-class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
+class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
   constructor(props: ValueSliderProps) {
     super();
     const max: number = props.maxValue;
@@ -42,10 +42,10 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
     this.state = {
       isDisabled: props.disabled ? true : false,
       title: props.title,
-      currentValue: props.currentValue ? props.currentValue : (min+max)/2,
+      currentValue: props.currentValue ? props.currentValue : (min + max) / 2,
       mouseMoveReady: false,
       currentXPos: 0,
-      isEditBoxMounted: false
+      isEditBoxMounted: false,
     }
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
@@ -69,13 +69,13 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
     this.setState({
       mouseMoveReady: true,
       initialXPos: mouseEvent.pageX,
-      initialSliderValue: this.state.currentValue ? this.state.currentValue : (min+max)/2
+      initialSliderValue: this.state.currentValue ? this.state.currentValue : (min + max) / 2,
     })
     window.addEventListener("mousemove", this.onMouseMove)
     window.addEventListener("mouseup", this.onMouseUp)
   }
 
-  onMouseMove(mouseEvent: any) :void {
+  onMouseMove(mouseEvent: any) : void {
     if (this.state.mouseMoveReady) {
       const initialValue = this.state.initialSliderValue
       const initialX = this.state.initialXPos
@@ -87,7 +87,7 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
 
   onMouseUp(mouseEvent: any) : void {
     this.setState({
-      mouseMoveReady: false
+      mouseMoveReady: false,
     })
     window.removeEventListener("mousemove", this.onMouseMove)
     window.removeEventListener("mouseup", this.onMouseUp)
@@ -99,22 +99,21 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
   }
 
   unmountEditValueBoxSave() : void {
-
   }
 
   render() {
-    const mainBase: [CSSProperties] = this.props.sizeH ? [css.main_base, {'width': `${this.props.sizeH}px`}] : [css.main_base]
+    const mainBase: [CSSProperties] = this.props.sizeH ? [css.main_base, {"width": `${this.props.sizeH}px`}] : [css.main_base]
     return <div>
       <StyleRoot>
         <div style={mainBase}>
           <span style={[css.title]}>{this.state.title}</span>
           {!this.state.isEditBoxMounted ?
             (<span style={[css.draggable]}
-                  onMouseDown={e=>{this.onMouseDown(e)}}
-                  onMouseMove={e=>{this.onMouseMove(e)}}
-                  onDoubleClick={e=>{this.mountEditValueBox()}}
-                  onMouseUp={e=>{this.onMouseUp(e)}}>{this.state.currentValue}</span>) :
-            (<span style={[css.draggable]} onClick={e=>{this.unmountEditValueBoxSave()}}>
+                  onMouseDown={e => {this.onMouseDown(e)}}
+                  onMouseMove={e => {this.onMouseMove(e)}}
+                  onDoubleClick={e => {this.mountEditValueBox()}}
+                  onMouseUp={e => {this.onMouseUp(e)}}>{this.state.currentValue}</span>) :
+            (<span style={[css.draggable]} onClick={e => {this.unmountEditValueBoxSave()}}>
               <input style={[css.input_field]}/>
             </span>)
           }
@@ -124,6 +123,6 @@ class _EB_ValueSlider extends React.Component<ValueSliderProps, ValueSliderState
   }
 }
 
-export { _EB_ValueSlider }
-let EB_ValueSlider = Radium(_EB_ValueSlider)
-export { EB_ValueSlider }
+export { _ValueSlider }
+let ValueSlider = Radium(_ValueSlider)
+export { ValueSlider }

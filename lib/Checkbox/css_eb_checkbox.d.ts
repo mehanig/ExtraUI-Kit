@@ -1,4 +1,4 @@
-import { CSSProperties } from '../css_types';
+import { CSSProperties } from "../css_types";
 declare const li_base: CSSProperties;
 declare const li_active: CSSProperties;
 declare const li_disabled: CSSProperties;

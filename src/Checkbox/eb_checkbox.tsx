@@ -2,10 +2,10 @@ import * as React from "react"
 
 // TODO: import Radium from "radium"; doesn't work WAT??
 // import Radium from "radium"
-let Radium = require('radium')
-import {StyleRoot} from 'radium'
-import {CSSProperties} from '../css_types'
-import * as css from './css_eb_checkbox'
+let Radium = require("radium")
+import {StyleRoot} from "radium"
+import {CSSProperties} from "../css_types"
+import * as css from "./css_eb_checkbox"
 
 export type StringFunction = () => string;
 

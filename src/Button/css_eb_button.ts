@@ -1,6 +1,6 @@
-import {CSSProperties} from '../css_types'
+import {CSSProperties} from "../css_types";
 
-const css_base: CSSProperties = {
+const CssBase: CSSProperties = {
   fontSize: 11,
   display: "flex",
   justifyContent: "center",
@@ -16,10 +16,10 @@ const css_base: CSSProperties = {
   margin: "10px",
   cursor: "pointer",
   outline: "none",
-  userSelect: "none"
+  userSelect: "none",
 };
 
-const css_active : CSSProperties = {
+const CssActive: CSSProperties = {
   backgroundColor: "#2391FF",
   ":hover": {
     backgroundColor: "#0088FF",
@@ -33,12 +33,12 @@ const css_active : CSSProperties = {
   },
 };
 
-const css_disabled : CSSProperties = {
-  backgroundColor: "#393939"
+const CssDisabled: CSSProperties = {
+  backgroundColor: "#393939",
 };
 
-const css_p_base: CSSProperties = {
-  margin: "auto"
+const CssPBase: CSSProperties = {
+  margin: "auto",
 };
 
-export {css_base, css_active, css_disabled, css_p_base}
+export { CssBase, CssActive, CssDisabled, CssPBase };

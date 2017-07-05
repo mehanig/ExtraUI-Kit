@@ -1,5 +1,6 @@
 import * as React from "react";
 export declare type StringFunction = () => string;
+export declare type StringToVoid = (f: string | number) => void;
 export interface ValueSliderProps {
     children?: React.ReactChild;
     className?: string;
@@ -8,7 +9,7 @@ export interface ValueSliderProps {
     minValue: number;
     title: string | StringFunction;
     currentValue?: number;
-    notifyOnChange?: (string) => void;
+    notifyOnChange?: StringToVoid;
     sizeH?: number;
 }
 export interface ValueSliderState {
@@ -32,5 +33,5 @@ declare class _ValueSlider extends React.Component<ValueSliderProps, ValueSlider
     render(): JSX.Element;
 }
 export { _ValueSlider };
-declare let ValueSlider: any;
+declare const ValueSlider: any;
 export { ValueSlider };

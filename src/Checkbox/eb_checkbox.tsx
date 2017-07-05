@@ -1,14 +1,14 @@
-import * as React from "react"
+import * as React from "react";
 
 // TODO: import Radium from "radium"; doesn't work WAT??
 // import Radium from "radium"
-let Radium = require("radium")
-import {StyleRoot} from "radium"
-import {CSSProperties} from "../css_types"
-import * as css from "./css_eb_checkbox"
+const Radium = require("radium");
+import {StyleRoot} from "radium";
+import {CSSProperties} from "../css_types";
+import * as css from "./css_eb_checkbox";
 
 export type StringFunction = () => string;
-
+export type StringToVoid = (f: string | number | boolean) => void;
 
 export interface CheckboxProps {
   name: string,
@@ -16,7 +16,7 @@ export interface CheckboxProps {
   className?: string,
   selected?: boolean,
   disabled?: boolean,
-  notifyOnChange?: (string) => void
+  notifyOnChange?: StringToVoid
 }
 
 export interface CheckboxState {
@@ -32,7 +32,7 @@ class _EB_Checkbox extends React.Component<CheckboxProps, CheckboxState> {
     this.state = {
       name: props.name,
       isDisabled: props.disabled,
-      isSelected: props.selected
+      isSelected: props.selected,
     };
   }
 
@@ -41,37 +41,37 @@ class _EB_Checkbox extends React.Component<CheckboxProps, CheckboxState> {
       if (this.props.notifyOnChange) {
         this.setState({isSelected}, () => {
           this.props.notifyOnChange(isSelected);
-        })
+        });
       } else {
         this.setState({isSelected});
       }
     }
   }
 
-  handleOptionChange() : void {
+  handleOptionChange(): void {
     this._updateStateAndNotify(!this.state.isSelected);
   }
 
-  handleNameClick() : void {
+  handleNameClick(): void {
     this._updateStateAndNotify(!this.state.isSelected);
   }
 
   render() {
-    const stylesLiArr: [CSSProperties] = this.state.isDisabled ? [css.li_base, css.li_disabled] : [css.li_base, css.li_active];
-    const css_input_arr: [CSSProperties] = this.state.isDisabled ? [css.input, css.input_disabled] : [css.input, css.input_active];
+    const stylesLiArr: [CSSProperties] = this.state.isDisabled ? [css.Li_base, css.Li_disabled] : [css.Li_base, css.Li_active];
+    const css_input_arr: [CSSProperties] = this.state.isDisabled ? [css.Input, css.Input_disabled] : [css.Input, css.Input_active];
     return <div>
       <StyleRoot>
-        <div style={[css.base]}>
+        <div style={[css.Base]}>
           <input type="checkbox"
                  checked={this.state.isSelected}
-                 onChange={() => {this.handleOptionChange()}}/>
-          <div style={[css.title]} onClick={()=>{this.handleNameClick()}}>{this.state.name}</div>
+                 onChange={() => { this.handleOptionChange(); }}/>
+          <div style={[css.Title]} onClick={() => { this.handleNameClick(); }}>{this.state.name}</div>
         </div>
       </StyleRoot>
-    </div>
+    </div>;
   }
 }
 
-export { _EB_Checkbox }
-let EB_Checkbox = Radium(_EB_Checkbox)
-export { EB_Checkbox }
+export { _EB_Checkbox };
+const EB_Checkbox = Radium(_EB_Checkbox);
+export { EB_Checkbox };

@@ -1,6 +1,6 @@
-import {CSSProperties} from "../css_types"
+import {CSSProperties} from "../css_types";
 
-const main_base: CSSProperties = {
+const Main_base: CSSProperties = {
   display: "flex",
   justifyContent: "flex-start",
   flexDirection: "row",
@@ -17,32 +17,31 @@ const main_base: CSSProperties = {
   margin: "10px",
 };
 
-const main_disabled: CSSProperties = {
+const Main_disabled: CSSProperties = {
+};
+
+const Main_active: CSSProperties = {
 
 };
 
-const main_active: CSSProperties = {
-
+const Title: CSSProperties = {
+  cursor: "pointer",
 };
 
-const title: CSSProperties = {
-  cursor: "pointer"
-};
-
-const draggable: CSSProperties = {
+const Draggable: CSSProperties = {
   color: "#2391FF",
   ":hover": {
     color: "#0088FF",
   },
   cursor: "pointer",
-  marginLeft: "auto"
+  marginLeft: "auto",
 };
 
-const li_disabled : CSSProperties = {
-  backgroundColor: "#989898"
+const Li_disabled : CSSProperties = {
+  backgroundColor: "#989898",
 };
 
-const main_base2: CSSProperties = {
+const Main_base2: CSSProperties = {
   fontSize: 11,
   display: "flex",
   float: "left",
@@ -51,11 +50,11 @@ const main_base2: CSSProperties = {
   color: "#fff",
 };
 
-const input_field: CSSProperties = {
-  width: "50px"
-}
+const Input_field: CSSProperties = {
+  width: "50px",
+};
 
 
 
 
-export {main_base, main_disabled, main_active, title, draggable, input_field}
+export {Main_base, Main_disabled, Main_active, Title, Draggable, Input_field};

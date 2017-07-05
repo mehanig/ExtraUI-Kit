@@ -1,5 +1,6 @@
 import * as React from "react";
 export declare type StringFunction = () => string;
+export declare type StringToVoid = (f: string | number) => void;
 export interface RadioButtonProps {
     name: string;
     children?: React.ReactChild;
@@ -9,7 +10,7 @@ export interface RadioButtonProps {
     textValues?: [string | StringFunction];
     title?: string | StringFunction;
     selectedOption?: string;
-    notifyOnChange?: (string) => void;
+    notifyOnChange?: StringToVoid;
 }
 export interface RadioButtonState {
     name: string;
@@ -27,5 +28,5 @@ declare class _EB_RadioButtonList extends React.Component<RadioButtonProps, Radi
     render(): JSX.Element;
 }
 export { _EB_RadioButtonList };
-declare let EB_RadioButtonList: any;
+declare const EB_RadioButtonList: any;
 export { EB_RadioButtonList };

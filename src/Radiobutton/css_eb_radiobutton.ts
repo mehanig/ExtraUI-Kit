@@ -1,6 +1,6 @@
-import {CSSProperties} from "../css_types"
+import {CSSProperties} from "../css_types";
 
-const li_base: CSSProperties = {
+const Li_base: CSSProperties = {
   display: "flex",
   justifyContent: "flex-start",
   flexDirection: "row",
@@ -11,17 +11,17 @@ const li_base: CSSProperties = {
   padding: "2px 2px",
   outline: "none",
   userSelect: "none",
-  listStyle: "none"
+  listStyle: "none",
 };
 
-const li_active : CSSProperties = {
+const Li_active: CSSProperties = {
 };
 
-const li_disabled : CSSProperties = {
-  backgroundColor: "#989898"
+const Li_disabled: CSSProperties = {
+  backgroundColor: "#989898",
 };
 
-const ul_base: CSSProperties = {
+const Ul_base: CSSProperties = {
   fontSize: 11,
   display: "flex",
   float: "left",
@@ -30,30 +30,29 @@ const ul_base: CSSProperties = {
   color: "#fff",
 };
 
-const input: CSSProperties = {
+const Input: CSSProperties = {
   margin: "0 5px 0 0",
   cursor: "pointer",
 };
 
-const input_disabled: CSSProperties = {
+const Input_disabled: CSSProperties = {
   ":checked": {
-    color:"#393939"
-  }
+    color:"#393939",
+  },
 };
 
-const input_active: CSSProperties = {
-
+const Input_active: CSSProperties = {
 };
 
-const text: CSSProperties = {
+const Text: CSSProperties = {
   margin: "0 0 5px 0",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
-const title: CSSProperties = {
+const Title: CSSProperties = {
   fontSize: 13,
   margin: "0 0 8px 2px",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
-export {li_base, li_active, li_disabled, ul_base, text, input, input_disabled, input_active, title}
+export {Li_base, Li_active, Li_disabled, Ul_base, Text, Input, Input_disabled, Input_active, Title};

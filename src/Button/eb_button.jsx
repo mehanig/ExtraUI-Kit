@@ -23,7 +23,7 @@ var _EB_Button = (function (_super) {
         _this.state = {
             onClickHandler: props.onClickHandler,
             buttonText: props.text || "Button",
-            isDisabled: props.disabled ? true : false
+            isDisabled: props.disabled ? true : false,
         };
         _this.onClickHandler = _this.onClickHandler.bind(_this);
         return _this;
@@ -33,10 +33,10 @@ var _EB_Button = (function (_super) {
     };
     _EB_Button.prototype.render = function () {
         var onClick = this.state.isDisabled ? null : this.onClickHandler;
-        var stylesArr = this.state.isDisabled ? [css_eb_button_1.css_base, css_eb_button_1.css_disabled] : [css_eb_button_1.css_base, css_eb_button_1.css_active];
+        var stylesArr = this.state.isDisabled ? [css_eb_button_1.CssBase, css_eb_button_1.CssDisabled] : [css_eb_button_1.CssBase, css_eb_button_1.CssActive];
         return <div>
       <radium_1.StyleRoot>
-        <div style={[stylesArr]} onClick={onClick}><p style={[css_eb_button_1.css_p_base]}>{this.state.buttonText}</p></div>
+        <div style={[stylesArr]} onClick={onClick}><p style={[css_eb_button_1.CssPBase]}>{this.state.buttonText}</p></div>
       </radium_1.StyleRoot>
     </div>;
     };

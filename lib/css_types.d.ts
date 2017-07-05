@@ -24,9 +24,9 @@ interface CSSProperties {
     userSelect?: string;
     float?: string;
     listStyle?: string;
-    ":hover"?: Object;
-    ":focus"?: Object;
-    ":active"?: Object;
-    ":checked"?: Object;
+    ":hover"?: object;
+    ":focus"?: object;
+    ":active"?: object;
+    ":checked"?: object;
 }
 export { CSSProperties };

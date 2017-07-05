@@ -1,12 +1,13 @@
 import * as React from "react";
 export declare type StringFunction = () => string;
+export declare type StringToVoid = (f: string | number | boolean) => void;
 export interface CheckboxProps {
     name: string;
     children?: React.ReactChild;
     className?: string;
     selected?: boolean;
     disabled?: boolean;
-    notifyOnChange?: (string) => void;
+    notifyOnChange?: StringToVoid;
 }
 export interface CheckboxState {
     name: string;
@@ -21,5 +22,5 @@ declare class _EB_Checkbox extends React.Component<CheckboxProps, CheckboxState>
     render(): JSX.Element;
 }
 export { _EB_Checkbox };
-declare let EB_Checkbox: any;
+declare const EB_Checkbox: any;
 export { EB_Checkbox };

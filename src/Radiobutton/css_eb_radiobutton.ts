@@ -1,6 +1,6 @@
-import {CSSProperties} from "../css_types";
+import {ICSSProperties} from "../css_types";
 
-const Li_base: CSSProperties = {
+const LiBase: ICSSProperties = {
   display: "flex",
   justifyContent: "flex-start",
   flexDirection: "row",
@@ -14,14 +14,14 @@ const Li_base: CSSProperties = {
   listStyle: "none",
 };
 
-const Li_active: CSSProperties = {
+const LiActive: ICSSProperties = {
 };
 
-const Li_disabled: CSSProperties = {
+const LiDisabled: ICSSProperties = {
   backgroundColor: "#989898",
 };
 
-const Ul_base: CSSProperties = {
+const UlBase: ICSSProperties = {
   fontSize: 11,
   display: "flex",
   float: "left",
@@ -30,29 +30,29 @@ const Ul_base: CSSProperties = {
   color: "#fff",
 };
 
-const Input: CSSProperties = {
+const Input: ICSSProperties = {
   margin: "0 5px 0 0",
   cursor: "pointer",
 };
 
-const Input_disabled: CSSProperties = {
+const InputDisabled: ICSSProperties = {
   ":checked": {
-    color:"#393939",
+    color: "#393939",
   },
 };
 
-const Input_active: CSSProperties = {
+const InputActive: ICSSProperties = {
 };
 
-const Text: CSSProperties = {
+const Text: ICSSProperties = {
   margin: "0 0 5px 0",
   cursor: "pointer",
 };
 
-const Title: CSSProperties = {
+const Title: ICSSProperties = {
   fontSize: 13,
   margin: "0 0 8px 2px",
   cursor: "pointer",
 };
 
-export {Li_base, Li_active, Li_disabled, Ul_base, Text, Input, Input_disabled, Input_active, Title};
+export {LiBase, LiActive, LiDisabled, UlBase, Text, Input, InputDisabled, InputActive, Title};

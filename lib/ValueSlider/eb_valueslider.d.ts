@@ -1,7 +1,7 @@
 import * as React from "react";
 export declare type StringFunction = () => string;
 export declare type StringToVoid = (f: string | number) => void;
-export interface ValueSliderProps {
+export interface IValueSliderProps {
     children?: React.ReactChild;
     className?: string;
     disabled?: boolean;
@@ -12,7 +12,7 @@ export interface ValueSliderProps {
     notifyOnChange?: StringToVoid;
     sizeH?: number;
 }
-export interface ValueSliderState {
+export interface IValueSliderState {
     isDisabled?: boolean;
     title: string | StringFunction;
     currentValue: number;
@@ -22,16 +22,16 @@ export interface ValueSliderState {
     initialSliderValue?: number;
     isEditBoxMounted: boolean;
 }
-declare class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
-    constructor(props: ValueSliderProps);
-    _updateStateAndNotify(currentValue: number): void;
-    onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>): void;
-    onMouseMove(mouseEvent: any): void;
-    onMouseUp(mouseEvent: any): void;
-    mountEditValueBox(): void;
-    unmountEditValueBoxSave(): void;
+declare class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
+    constructor(props: IValueSliderProps);
     render(): JSX.Element;
+    private _updateStateAndNotify(currentValue);
+    private onMouseDown(mouseEvent);
+    private onMouseMove(mouseEvent);
+    private onMouseUp(mouseEvent);
+    private mountEditValueBox();
+    private unmountEditValueBoxSave();
 }
-export { _ValueSlider };
+export { EBValueSlider };
 declare const ValueSlider: any;
 export { ValueSlider };

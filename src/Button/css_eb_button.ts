@@ -1,6 +1,6 @@
-import {CSSProperties} from "../css_types";
+import {ICSSProperties} from "../css_types";
 
-const CssBase: CSSProperties = {
+const CssBase: ICSSProperties = {
   fontSize: 11,
   display: "flex",
   justifyContent: "center",
@@ -19,8 +19,8 @@ const CssBase: CSSProperties = {
   userSelect: "none",
 };
 
-const CssActive: CSSProperties = {
-  backgroundColor: "#2391FF",
+const CssActive: ICSSProperties = {
+  "backgroundColor": "#2391FF",
   ":hover": {
     backgroundColor: "#0088FF",
   },
@@ -33,11 +33,11 @@ const CssActive: CSSProperties = {
   },
 };
 
-const CssDisabled: CSSProperties = {
+const CssDisabled: ICSSProperties = {
   backgroundColor: "#393939",
 };
 
-const CssPBase: CSSProperties = {
+const CssPBase: ICSSProperties = {
   margin: "auto",
 };
 

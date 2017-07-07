@@ -4,13 +4,13 @@ import * as React from "react";
 // import Radium from "radium";
 const Radium = require("radium");
 import {StyleRoot} from "radium";
-import {CSSProperties} from "../css_types";
+import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_valueslider";
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
 
-export interface ValueSliderProps {
+export interface IValueSliderProps {
   children?: React.ReactChild,
   className?: string,
   disabled?: boolean,
@@ -22,7 +22,7 @@ export interface ValueSliderProps {
   sizeH?: number
 }
 
-export interface ValueSliderState {
+export interface IValueSliderState {
   isDisabled?: boolean,
   title: string | StringFunction,
   currentValue: number,
@@ -33,8 +33,8 @@ export interface ValueSliderState {
   isEditBoxMounted: boolean
 }
 
-class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
-  constructor(props: ValueSliderProps) {
+class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
+  constructor(props: IValueSliderProps) {
     super();
     const max: number = props.maxValue;
     const min: number = props.minValue;
@@ -48,9 +48,45 @@ class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     };
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
+    this.onMouseDown = this.onMouseDown.bind(this);
+    this.mountEditValueBox = this.mountEditValueBox.bind(this);
+    this.unmountEditValueBoxSave = this.unmountEditValueBoxSave.bind(this);
   }
 
-  _updateStateAndNotify(currentValue: number) {
+  public render() {
+    const mainBase: [ICSSProperties] =
+      this.props.sizeH ? [css.MainBase, {width: `${this.props.sizeH}px`}] : [css.MainBase];
+    const noEditBoxSlider =
+      (
+        <span
+          style={[css.Draggable]}
+          onMouseDown={this.onMouseDown}
+          onMouseMove={this.onMouseMove}
+          onDoubleClick={this.mountEditValueBox}
+          onMouseUp={this.onMouseUp}
+        >
+          {this.state.currentValue}
+        </span>
+      );
+    const EditBoxSlider =
+      (
+        <span style={[css.Draggable]} onClick={this.unmountEditValueBoxSave}>
+          <input style={[css.InputField]}/>
+        </span>
+      );
+    return (
+      <div>
+        <StyleRoot>
+          <div style={mainBase}>
+            <span style={[css.Title]}>{this.state.title}</span>
+            {!this.state.isEditBoxMounted ? noEditBoxSlider : EditBoxSlider}
+          </div>
+        </StyleRoot>
+      </div>
+    );
+  }
+
+  private _updateStateAndNotify(currentValue: number) {
     if (!this.state.isDisabled) {
       if (this.props.notifyOnChange) {
         this.setState({currentValue}, () => {
@@ -62,7 +98,7 @@ class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     }
   }
 
-  onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>): void {
+  private onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>): void {
     const max: number = this.props.maxValue;
     const min: number = this.props.minValue;
     this.setState({
@@ -74,7 +110,7 @@ class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     window.addEventListener("mouseup", this.onMouseUp);
   }
 
-  onMouseMove(mouseEvent: any): void {
+  private onMouseMove(mouseEvent: any): void {
     if (this.state.mouseMoveReady) {
       const initialValue = this.state.initialSliderValue;
       const initialX = this.state.initialXPos;
@@ -84,7 +120,7 @@ class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     }
   }
 
-  onMouseUp(mouseEvent: any): void {
+  private onMouseUp(mouseEvent: any): void {
     this.setState({
       mouseMoveReady: false,
     });
@@ -92,40 +128,16 @@ class _ValueSlider extends React.Component<ValueSliderProps, ValueSliderState> {
     window.removeEventListener("mouseup", this.onMouseUp);
   }
 
-  mountEditValueBox(): void {
+  private mountEditValueBox(): void {
     const isEditBoxMounted = !this.state.isEditBoxMounted;
     this.setState({isEditBoxMounted});
   }
 
-  unmountEditValueBoxSave(): void {
+  private unmountEditValueBoxSave(): void {
     alert("NotImplemented");
-  }
-
-  render() {
-    const mainBase: [CSSProperties] = this.props.sizeH ? [css.Main_base, {"width": `${this.props.sizeH}px`}] : [css.Main_base];
-    return (
-      <div>
-        <StyleRoot>
-          <div style={mainBase}>
-            <span style={[css.Title]}>{this.state.title}</span>
-            {!this.state.isEditBoxMounted ?
-              (
-                <span style={[css.Draggable]} onMouseDown={(e) => { this.onMouseDown(e); }} onMouseMove={(e) => { this.onMouseMove(e); }} onDoubleClick={(e) => { this.mountEditValueBox(); }} onMouseUp={(e) => { this.onMouseUp(e); }}>
-                  {this.state.currentValue}
-                </span>
-              ) : (
-                <span style={[css.Draggable]} onClick={(e) => { this.unmountEditValueBoxSave(); }}>
-                  <input style={[css.Input_field]}/>
-                </span>
-              )
-            }
-          </div>
-        </StyleRoot>
-      </div>
-    );
   }
 }
 
-export { _ValueSlider };
-const ValueSlider = Radium(_ValueSlider);
+export { EBValueSlider };
+const ValueSlider = Radium(EBValueSlider);
 export { ValueSlider };

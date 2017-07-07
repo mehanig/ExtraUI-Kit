@@ -1,4 +1,4 @@
-interface CSSProperties {
+interface ICSSProperties {
     fontSize?: string | number;
     display?: string;
     fontFamily?: string;
@@ -29,4 +29,4 @@ interface CSSProperties {
     ":active"?: object;
     ":checked"?: object;
 }
-export { CSSProperties };
+export { ICSSProperties };

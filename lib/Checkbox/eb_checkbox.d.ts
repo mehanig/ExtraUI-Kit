@@ -1,7 +1,7 @@
 import * as React from "react";
 export declare type StringFunction = () => string;
 export declare type StringToVoid = (f: string | number | boolean) => void;
-export interface CheckboxProps {
+export interface ICheckboxProps {
     name: string;
     children?: React.ReactChild;
     className?: string;
@@ -9,18 +9,18 @@ export interface CheckboxProps {
     disabled?: boolean;
     notifyOnChange?: StringToVoid;
 }
-export interface CheckboxState {
+export interface ICheckboxState {
     name: string;
     isDisabled: boolean;
     isSelected: boolean;
 }
-declare class _EB_Checkbox extends React.Component<CheckboxProps, CheckboxState> {
-    constructor(props: CheckboxProps);
-    _updateStateAndNotify(isSelected: boolean): void;
-    handleOptionChange(): void;
-    handleNameClick(): void;
+declare class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
+    constructor(props: ICheckboxProps);
     render(): JSX.Element;
+    private _updateStateAndNotify(isSelected);
+    private handleOptionChange();
+    private handleNameClick();
 }
-export { _EB_Checkbox };
-declare const EB_Checkbox: any;
-export { EB_Checkbox };
+export { EBCheckbox };
+declare const Checkbox: any;
+export { Checkbox };

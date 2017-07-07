@@ -4,18 +4,17 @@ import * as React from "react";
 // import Radium from "radium";
 const Radium = require("radium");
 import {StyleRoot} from "radium";
-import {CSSProperties} from "../css_types";
+import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_radiobutton";
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
 
-
-export interface RadioButtonProps {
+export interface IRadioButtonProps {
   name: string,
   children?: React.ReactChild,
   className?: string,
-  values:  [string],
+  values: [string],
   disabled?: any,
   textValues?: [string | StringFunction],
   title?: string | StringFunction,
@@ -23,18 +22,17 @@ export interface RadioButtonProps {
   notifyOnChange?: StringToVoid
 }
 
-export interface RadioButtonState {
+export interface IRadioButtonState {
   name: string
   isDisabled?: boolean,
-  values:  [string],
+  values: [string],
   textValues: [string | StringFunction],
   title?: string | StringFunction,
   selectedOption?: string,
-};
+}
 
-
-class _EB_RadioButtonList extends React.Component<RadioButtonProps, RadioButtonState> {
-  constructor(props: RadioButtonProps) {
+class EBRadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
+  constructor(props: IRadioButtonProps) {
     super();
     this.state = {
       values: props.values,
@@ -42,59 +40,73 @@ class _EB_RadioButtonList extends React.Component<RadioButtonProps, RadioButtonS
       name: props.name,
       textValues: props.textValues ? props.textValues : props.values,
       title: props.title,
-      selectedOption: props.selectedOption
+      selectedOption: props.selectedOption,
     };
+    this.handleOptionChange = this.handleOptionChange.bind(this);
+    this.handleLiClick = this.handleLiClick.bind(this);
   }
 
-  _updateStateAndNotify(selectedOption: string) {
+  public render() {
+    const stylesLiArr: [ICSSProperties] =
+      this.state.isDisabled ? [css.LiBase, css.LiDisabled] : [css.LiBase, css.LiActive];
+    const cssInputArr: [ICSSProperties] =
+      this.state.isDisabled ? [css.Input, css.InputDisabled] : [css.Input, css.InputActive];
+    const liElements = this.state.values.map((itemValue, index) => {
+      return (
+        <li key={itemValue + index} style={stylesLiArr}>
+          <input
+            checked={this.state.selectedOption === itemValue}
+            onChange={this.handleOptionChange}
+            style={cssInputArr}
+            type="radio"
+            name={this.props.name}
+            value={itemValue}
+          />
+          <span
+            style={[css.Text]}
+            value={itemValue}
+            onClick={this.handleLiClick}
+          >
+            {this.state.textValues[index]}
+          </span>
+        </li>
+      );
+    });
+    return (
+      <div>
+        <StyleRoot>
+          <div style={[css.UlBase]}>
+            {this.state.title ? <div style={[css.Title]}>{this.state.title}: {this.state.selectedOption}</div> : null}
+            {liElements}
+          </div>
+        </StyleRoot>
+      </div>
+    );
+  }
+
+  private _updateStateAndNotify(selectedOption: string) {
     if (!this.state.isDisabled) {
       if (this.props.notifyOnChange) {
         this.setState({selectedOption}, () => {
           this.props.notifyOnChange(selectedOption);
-        })
+        });
       } else {
         this.setState({selectedOption});
       }
     }
   }
 
-  handleOptionChange(changeEvent: React.ChangeEvent<HTMLInputElement>): void {
+  private handleOptionChange(changeEvent: React.ChangeEvent<HTMLInputElement>): void {
     const safeSearchTypeValue: string = changeEvent.currentTarget.value;
     this._updateStateAndNotify(safeSearchTypeValue);
   }
 
-  handleLiClick(clickEvent: React.MouseEvent<HTMLSpanElement>): void {
+  private handleLiClick(clickEvent: React.MouseEvent<HTMLSpanElement>): void {
     const safeSearchTypeValue: string = clickEvent.currentTarget.getAttribute("value");
     this._updateStateAndNotify(safeSearchTypeValue);
   }
-
-  render() {
-    const stylesLiArr: [CSSProperties] = this.state.isDisabled ? [css.Li_base, css.Li_disabled] : [css.Li_base, css.Li_active];
-    const css_input_arr: [CSSProperties] = this.state.isDisabled ? [css.Input, css.Input_disabled] : [css.Input, css.Input_active];
-    const li_elements = this.state.values.map((item_value, index) => {
-      return <li key={item_value + index} style={stylesLiArr}>
-        <input checked={this.state.selectedOption === item_value}
-               onChange={(e) => {this.handleOptionChange(e);}}
-               style={css_input_arr}
-               type="radio"
-               name={this.props.name}
-               value={item_value} />
-        <span style={[css.Text]}
-              value={item_value}
-              onClick={(e) => { this.handleLiClick(e); }}>{this.state.textValues[index]}</span>
-      </li>
-    });
-    return <div>
-      <StyleRoot>
-        <div style={[css.Ul_base]}>
-          {this.state.title ? <div style={[css.Title]}>{this.state.title}: {this.state.selectedOption}</div> : null}
-          {li_elements}
-        </div>
-      </StyleRoot>
-    </div>
-  }
 }
 
-export { _EB_RadioButtonList };
-const EB_RadioButtonList = Radium(_EB_RadioButtonList);
-export { EB_RadioButtonList };
+export { EBRadioButtonList };
+const RadioButtonList = Radium(EBRadioButtonList);
+export { RadioButtonList };

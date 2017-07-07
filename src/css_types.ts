@@ -1,4 +1,4 @@
-interface CSSProperties {
+interface ICSSProperties {
   fontSize?: string | number ,
   display?: string,
   fontFamily?: string,
@@ -20,7 +20,7 @@ interface CSSProperties {
   marginBottom?: string,
   justifyContent?: string,
   alignContent?: string,
-  flexDirection? : string,
+  flexDirection?: string,
   userSelect?: string,
   float?: string,
   listStyle?: string,
@@ -30,4 +30,4 @@ interface CSSProperties {
   ":checked"?: object,
 }
 
-export {CSSProperties};
+export {ICSSProperties};

@@ -1,7 +1,7 @@
 import * as React from "react";
 export declare type StringFunction = () => string;
 export declare type StringToVoid = (f: string | number) => void;
-export interface RadioButtonProps {
+export interface IRadioButtonProps {
     name: string;
     children?: React.ReactChild;
     className?: string;
@@ -12,7 +12,7 @@ export interface RadioButtonProps {
     selectedOption?: string;
     notifyOnChange?: StringToVoid;
 }
-export interface RadioButtonState {
+export interface IRadioButtonState {
     name: string;
     isDisabled?: boolean;
     values: [string];
@@ -20,13 +20,13 @@ export interface RadioButtonState {
     title?: string | StringFunction;
     selectedOption?: string;
 }
-declare class _EB_RadioButtonList extends React.Component<RadioButtonProps, RadioButtonState> {
-    constructor(props: RadioButtonProps);
-    _updateStateAndNotify(selectedOption: string): void;
-    handleOptionChange(changeEvent: React.ChangeEvent<HTMLInputElement>): void;
-    handleLiClick(clickEvent: React.MouseEvent<HTMLSpanElement>): void;
+declare class EBRadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
+    constructor(props: IRadioButtonProps);
     render(): JSX.Element;
+    private _updateStateAndNotify(selectedOption);
+    private handleOptionChange(changeEvent);
+    private handleLiClick(clickEvent);
 }
-export { _EB_RadioButtonList };
-declare const EB_RadioButtonList: any;
-export { EB_RadioButtonList };
+export { EBRadioButtonList };
+declare const RadioButtonList: any;
+export { RadioButtonList };

@@ -1,6 +1,6 @@
-import { CSSProperties } from "../css_types";
-declare const CssBase: CSSProperties;
-declare const CssActive: CSSProperties;
-declare const CssDisabled: CSSProperties;
-declare const CssPBase: CSSProperties;
+import { ICSSProperties } from "../css_types";
+declare const CssBase: ICSSProperties;
+declare const CssActive: ICSSProperties;
+declare const CssDisabled: ICSSProperties;
+declare const CssPBase: ICSSProperties;
 export { CssBase, CssActive, CssDisabled, CssPBase };

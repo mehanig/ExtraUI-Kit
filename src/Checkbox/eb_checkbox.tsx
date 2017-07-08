@@ -1,9 +1,5 @@
 import * as React from "react";
-
-// TODO: import Radium from "radium"; doesn't work WAT??
-// import Radium from "radium"
-const Radium = require("radium");
-import {StyleRoot} from "radium";
+import * as Radium from "radium";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_checkbox";
 
@@ -44,12 +40,12 @@ class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
       this.state.isDisabled ? [css.Input, css.InputDisabled] : [css.Input, css.InputActive];
     return (
       <div>
-        <StyleRoot>
+        <Radium.StyleRoot>
           <div style={[css.Base]}>
             <input type="checkbox" checked={this.state.isSelected} onChange={this.handleOptionChange}/>
             <div style={[css.Title]} onClick={this.handleNameClick}>{this.state.name}</div>
           </div>
-        </StyleRoot>
+        </Radium.StyleRoot>
       </div>
     );
   }

@@ -1,9 +1,5 @@
 import * as React from "react";
-
-// TODO: import Radium from "radium"; doesn't work WAT??
-// import Radium from "radium";
-const Radium = require("radium");
-import {StyleRoot} from "radium";
+import * as Radium from "radium";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_radiobutton";
 
@@ -74,12 +70,12 @@ class EBRadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonS
     });
     return (
       <div>
-        <StyleRoot>
+        <Radium.StyleRoot>
           <div style={[css.UlBase]}>
             {this.state.title ? <div style={[css.Title]}>{this.state.title}: {this.state.selectedOption}</div> : null}
             {liElements}
           </div>
-        </StyleRoot>
+        </Radium.StyleRoot>
       </div>
     );
   }

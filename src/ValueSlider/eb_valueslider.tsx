@@ -1,9 +1,5 @@
 import * as React from "react";
-
-// TODO: import Radium from "radium"; doesn't work WAT??
-// import Radium from "radium";
-const Radium = require("radium");
-import {StyleRoot} from "radium";
+import * as Radium from "radium";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_valueslider";
 
@@ -76,12 +72,12 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       );
     return (
       <div>
-        <StyleRoot>
+        <Radium.StyleRoot>
           <div style={mainBase}>
             <span style={[css.Title]}>{this.state.title}</span>
             {!this.state.isEditBoxMounted ? noEditBoxSlider : EditBoxSlider}
           </div>
-        </StyleRoot>
+        </Radium.StyleRoot>
       </div>
     );
   }

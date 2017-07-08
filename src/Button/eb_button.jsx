@@ -11,10 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-// TODO: import Radium from "radium"; doesn't work WAT??
-// import Radium from "radium";
 var Radium = require("radium");
-var radium_1 = require("radium");
 var css_eb_button_1 = require("./css_eb_button");
 var EBButton = (function (_super) {
     __extends(EBButton, _super);
@@ -32,9 +29,9 @@ var EBButton = (function (_super) {
         var onClick = this.state.isDisabled ? null : this.onClickHandler;
         var stylesArr = this.state.isDisabled ? [css_eb_button_1.CssBase, css_eb_button_1.CssDisabled] : [css_eb_button_1.CssBase, css_eb_button_1.CssActive];
         return (<div>
-        <radium_1.StyleRoot>
+        <Radium.StyleRoot>
           <div style={[stylesArr]} onClick={onClick}><p style={[css_eb_button_1.CssPBase]}>{this.state.buttonText}</p></div>
-        </radium_1.StyleRoot>
+        </Radium.StyleRoot>
       </div>);
     };
     EBButton.prototype.onClickHandler = function () {

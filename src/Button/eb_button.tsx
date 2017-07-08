@@ -1,9 +1,5 @@
 import * as React from "react";
-
-// TODO: import Radium from "radium"; doesn't work WAT??
-// import Radium from "radium";
-const Radium = require("radium");
-import {StyleRoot} from "radium";
+import * as Radium from "radium";
 import {ICSSProperties} from "../css_types";
 import {CssActive, CssBase, CssDisabled, CssPBase} from "./css_eb_button";
 
@@ -39,9 +35,9 @@ class EBButton extends React.Component<IButtonProps, IButtonState> {
     const stylesArr: [ICSSProperties] = this.state.isDisabled ? [CssBase, CssDisabled] : [CssBase, CssActive];
     return (
       <div>
-        <StyleRoot>
+        <Radium.StyleRoot>
           <div style={[stylesArr]} onClick={onClick}><p style={[CssPBase]}>{this.state.buttonText}</p></div>
-        </StyleRoot>
+        </Radium.StyleRoot>
       </div>
     );
   }

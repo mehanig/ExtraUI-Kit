@@ -4,7 +4,6 @@ import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_checkbox";
 import Props = React.Props;
 
-export type StringFunction = () => string;
 export type StringToVoid = (f: string | number | boolean) => void;
 
 export interface ICheckboxProps {
@@ -44,10 +43,6 @@ class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
   }
 
   public render() {
-    const stylesLiArr: [ICSSProperties] =
-      this.state.isDisabled ? [css.LiBase, css.LiDisabled] : [css.LiBase, css.LiActive];
-    const cssInputArr: [ICSSProperties] =
-      this.state.isDisabled ? [css.Input, css.InputDisabled] : [css.Input, css.InputActive];
     return (
       <div>
         <Radium.StyleRoot>

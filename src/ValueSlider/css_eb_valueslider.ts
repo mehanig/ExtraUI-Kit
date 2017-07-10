@@ -17,13 +17,6 @@ const MainBase: ICSSProperties = {
   margin: "10px",
 };
 
-const MainDisabled: ICSSProperties = {
-};
-
-const MainActive: ICSSProperties = {
-
-};
-
 const Title: ICSSProperties = {
   cursor: "pointer",
 };
@@ -38,7 +31,7 @@ const Draggable: ICSSProperties = {
 };
 
 const InputField: ICSSProperties = {
-  width: "50px",
+  width: "30px",
 };
 
-export {MainBase, MainDisabled, MainActive, Title, Draggable, InputField};
+export {MainBase, Title, Draggable, InputField};

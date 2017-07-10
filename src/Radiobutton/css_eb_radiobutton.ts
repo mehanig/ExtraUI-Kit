@@ -14,9 +14,6 @@ const LiBase: ICSSProperties = {
   listStyle: "none",
 };
 
-const LiActive: ICSSProperties = {
-};
-
 const LiDisabled: ICSSProperties = {
   backgroundColor: "#989898",
 };
@@ -41,9 +38,6 @@ const InputDisabled: ICSSProperties = {
   },
 };
 
-const InputActive: ICSSProperties = {
-};
-
 const Text: ICSSProperties = {
   margin: "0 0 5px 0",
   cursor: "pointer",
@@ -55,4 +49,4 @@ const Title: ICSSProperties = {
   cursor: "pointer",
 };
 
-export {LiBase, LiActive, LiDisabled, UlBase, Text, Input, InputDisabled, InputActive, Title};
+export {LiBase, LiDisabled, UlBase, Text, Input, InputDisabled, Title};

@@ -44,9 +44,9 @@ class EBRadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonS
 
   public render() {
     const stylesLiArr: [ICSSProperties] =
-      this.state.isDisabled ? [css.LiBase, css.LiDisabled] : [css.LiBase, css.LiActive];
+      this.state.isDisabled ? [css.LiBase, css.LiDisabled] : [css.LiBase];
     const cssInputArr: [ICSSProperties] =
-      this.state.isDisabled ? [css.Input, css.InputDisabled] : [css.Input, css.InputActive];
+      this.state.isDisabled ? [css.Input, css.InputDisabled] : [css.Input];
     const liElements = this.state.values.map((itemValue, index) => {
       return (
         <li key={itemValue + index} style={stylesLiArr}>

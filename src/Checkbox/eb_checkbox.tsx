@@ -2,6 +2,7 @@ import * as React from "react";
 import * as Radium from "radium";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_checkbox";
+import Props = React.Props;
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number | boolean) => void;
@@ -31,6 +32,15 @@ class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
     };
     this.handleOptionChange =  this.handleOptionChange.bind(this);
     this.handleNameClick = this.handleNameClick.bind(this);
+  }
+
+  public componentWillReceiveProps(nextProps: ICheckboxProps) {
+    if (this.props.selected != nextProps.selected) {
+      this.setState({isSelected: nextProps.selected});
+    }
+    if (this.props.disabled != nextProps.disabled) {
+      this.setState({isDisabled: nextProps.disabled});
+    }
   }
 
   public render() {

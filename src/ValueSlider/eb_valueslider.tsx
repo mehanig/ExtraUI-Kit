@@ -2,6 +2,7 @@ import * as React from "react";
 import * as Radium from "radium";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_valueslider";
+import ChangeEvent = React.ChangeEvent;
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
@@ -22,6 +23,7 @@ export interface IValueSliderState {
   isDisabled?: boolean,
   title: string | StringFunction,
   currentValue: number,
+  tmpValue: number | string,
   mouseMoveReady: boolean,
   currentXPos: number,
   initialXPos?: number,
@@ -41,12 +43,15 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       mouseMoveReady: false,
       currentXPos: 0,
       isEditBoxMounted: false,
+      tmpValue: ""
     };
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.mountEditValueBox = this.mountEditValueBox.bind(this);
     this.unmountEditValueBoxSave = this.unmountEditValueBoxSave.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputKeyPress = this.handleInputKeyPress.bind(this);
   }
 
   public render() {
@@ -67,7 +72,13 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     const EditBoxSlider =
       (
         <span style={[css.Draggable]} onClick={this.unmountEditValueBoxSave}>
-          <input style={[css.InputField]}/>
+          <input
+            style={[css.InputField]}
+            value={this.state.tmpValue}
+            ref={input => input && input.focus()}
+            onChange={this.handleInputChange}
+            onKeyPress={this.handleInputKeyPress}
+          />
         </span>
       );
     return (
@@ -126,11 +137,28 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
 
   private mountEditValueBox(): void {
     const isEditBoxMounted = !this.state.isEditBoxMounted;
-    this.setState({isEditBoxMounted});
+    this.setState({isEditBoxMounted, tmpValue: this.state.currentValue});
   }
 
   private unmountEditValueBoxSave(): void {
-    alert("NotImplemented");
+    const intValue: number = Number(this.state.tmpValue);
+    if (!isNaN(intValue)) {
+      this.setState({currentValue: intValue}, () => {
+        this._updateStateAndNotify(intValue);
+      });
+    }
+    const isEditBoxMounted = !this.state.isEditBoxMounted;
+    this.setState({isEditBoxMounted});
+  }
+
+  private handleInputChange(e: ChangeEvent<HTMLInputElement>) {
+    this.setState({tmpValue: e.target.value});
+  }
+
+  private handleInputKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter') {
+      this.unmountEditValueBoxSave();
+    }
   }
 }
 

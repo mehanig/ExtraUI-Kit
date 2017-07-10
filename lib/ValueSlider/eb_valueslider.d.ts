@@ -16,6 +16,7 @@ export interface IValueSliderState {
     isDisabled?: boolean;
     title: string | StringFunction;
     currentValue: number;
+    tmpValue: number | string;
     mouseMoveReady: boolean;
     currentXPos: number;
     initialXPos?: number;
@@ -31,6 +32,8 @@ declare class EBValueSlider extends React.Component<IValueSliderProps, IValueSli
     private onMouseUp(mouseEvent);
     private mountEditValueBox();
     private unmountEditValueBoxSave();
+    private handleInputChange(e);
+    private handleInputKeyPress(e);
 }
 export { EBValueSlider };
 declare const ValueSlider: any;

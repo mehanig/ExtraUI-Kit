@@ -16,6 +16,7 @@ export interface ICheckboxState {
 }
 declare class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
     constructor(props: ICheckboxProps);
+    componentWillReceiveProps(nextProps: ICheckboxProps): void;
     render(): JSX.Element;
     private _updateStateAndNotify(isSelected);
     private handleOptionChange();

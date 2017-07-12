@@ -1,5 +1,5 @@
-import * as React from "react";
 import * as Radium from "radium";
+import * as React from "react";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_valueslider";
 import ChangeEvent = React.ChangeEvent;
@@ -39,11 +39,11 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     this.state = {
       isDisabled: props.disabled ? true : false,
       title: props.title,
-      currentValue: props.currentValue ? props.currentValue : (min + max) / 2,
+      currentValue: !isNaN(props.currentValue) ? props.currentValue : (min + max) / 2,
       mouseMoveReady: false,
       currentXPos: 0,
       isEditBoxMounted: false,
-      tmpValue: ""
+      tmpValue: "",
     };
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
@@ -52,6 +52,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     this.unmountEditValueBoxSave = this.unmountEditValueBoxSave.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputKeyPress = this.handleInputKeyPress.bind(this);
+    this.focusInput = this.focusInput.bind(this);
   }
 
   public render() {
@@ -75,7 +76,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
           <input
             style={[css.InputField]}
             value={this.state.tmpValue}
-            ref={input => input && input.focus()}
+            ref={this.focusInput}
             onChange={this.handleInputChange}
             onKeyPress={this.handleInputKeyPress}
           />
@@ -91,6 +92,10 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
         </Radium.StyleRoot>
       </div>
     );
+  }
+
+  private focusInput(input: any): any {
+    return input && input.focus();
   }
 
   private _updateStateAndNotify(currentValue: number) {
@@ -156,7 +161,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
   }
 
   private handleInputKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       this.unmountEditValueBoxSave();
     }
   }

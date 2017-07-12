@@ -26,6 +26,7 @@ export interface IValueSliderState {
 declare class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
     constructor(props: IValueSliderProps);
     render(): JSX.Element;
+    private focusInput(input);
     private _updateStateAndNotify(currentValue);
     private onMouseDown(mouseEvent);
     private onMouseMove(mouseEvent);

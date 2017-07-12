@@ -1,5 +1,5 @@
-import * as React from "react";
 import * as Radium from "radium";
+import * as React from "react";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_radiobutton";
 

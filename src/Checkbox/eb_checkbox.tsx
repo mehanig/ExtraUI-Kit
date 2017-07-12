@@ -1,5 +1,5 @@
-import * as React from "react";
 import * as Radium from "radium";
+import * as React from "react";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_checkbox";
 import Props = React.Props;
@@ -34,10 +34,10 @@ class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
   }
 
   public componentWillReceiveProps(nextProps: ICheckboxProps) {
-    if (this.props.selected != nextProps.selected) {
+    if (this.props.selected !== nextProps.selected) {
       this.setState({isSelected: nextProps.selected});
     }
-    if (this.props.disabled != nextProps.disabled) {
+    if (this.props.disabled !== nextProps.disabled) {
       this.setState({isDisabled: nextProps.disabled});
     }
   }

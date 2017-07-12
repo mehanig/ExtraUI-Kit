@@ -24,6 +24,8 @@ interface ICSSProperties {
   userSelect?: string,
   float?: string,
   listStyle?: string,
+  alignSelf?: string,
+  overflow?: string,
   ":hover"?: object,
   ":focus"?: object,
   ":active"?: object,

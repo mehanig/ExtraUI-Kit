@@ -1,3 +1,4 @@
+import {CONST as C} from "../css_const";
 import {ICSSProperties} from "../css_types";
 
 const TabMenuBase: ICSSProperties = {
@@ -10,8 +11,8 @@ const TabMenuBase: ICSSProperties = {
   userSelect: "none",
   listStyle: "none",
   overflow: "hidden",
-  color: "white",
-  cursor: "pointer",
+  fontSize: C.FontSize,
+  color: C.TextColor,
 };
 
 const tabsStyle: ICSSProperties = {
@@ -23,11 +24,13 @@ const tabsStyle: ICSSProperties = {
 };
 
 const tabBase: ICSSProperties = {
-  padding: "6px 10px",
+  padding: "6px 5px 3px 5px",
+  margin: "auto 5px 3px 5px",
+  cursor: "pointer",
 };
 
 const selectedTab: ICSSProperties = {
-
+  borderBottom: `2px solid ${C.UnderlineColor}`,
 };
 
 const notSelectedTab: ICSSProperties = {

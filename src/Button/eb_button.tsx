@@ -1,7 +1,7 @@
 import * as Radium from "radium";
 import * as React from "react";
 import {ICSSProperties} from "../css_types";
-import {CssActive, CssBase, CssDisabled, CssPBase} from "./css_eb_button";
+import {AEButton, AECssActive, AECssDisabled, CssActive, CssBase, CssDisabled, CssPBase} from "./css_eb_button";
 
 export type StringFunction = () => string;
 
@@ -10,7 +10,8 @@ export interface IButtonProps {
   className?: string,
   onClickHandler?: any,
   text?: string | StringFunction,
-  disabled?: any
+  disabled?: any,
+  UIType?: string
 }
 
 export interface IButtonState {
@@ -32,7 +33,12 @@ class EBButton extends React.Component<IButtonProps, IButtonState> {
 
   public render() {
     const onClick: any = this.state.isDisabled ? null : this.onClickHandler;
-    const stylesArr: [ICSSProperties] = this.state.isDisabled ? [CssBase, CssDisabled] : [CssBase, CssActive];
+    let stylesArr: [ICSSProperties];
+    if (this.props.UIType === "AE") {
+      stylesArr = this.state.isDisabled ? [AEButton, AECssDisabled] : [AEButton, AECssActive];
+    } else {
+      stylesArr = this.state.isDisabled ? [CssBase, CssDisabled] : [CssBase, CssActive];
+    }
     return (
       <div>
         <Radium.StyleRoot>

@@ -1,3 +1,4 @@
+import {CONST as C} from "../css_const";
 import {ICSSProperties} from "../css_types";
 
 const LiBase: ICSSProperties = {
@@ -12,6 +13,8 @@ const LiBase: ICSSProperties = {
   outline: "none",
   userSelect: "none",
   listStyle: "none",
+  fontSize: C.FontSize,
+  color: C.TextColor,
 };
 
 const LiDisabled: ICSSProperties = {
@@ -19,12 +22,10 @@ const LiDisabled: ICSSProperties = {
 };
 
 const UlBase: ICSSProperties = {
-  fontSize: 11,
   display: "flex",
   float: "left",
   flexDirection: "column",
   margin: "10px",
-  color: "#fff",
 };
 
 const Input: ICSSProperties = {
@@ -44,7 +45,6 @@ const Text: ICSSProperties = {
 };
 
 const Title: ICSSProperties = {
-  fontSize: 13,
   margin: "0 0 8px 2px",
   cursor: "pointer",
 };

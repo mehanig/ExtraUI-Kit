@@ -6,6 +6,7 @@ export interface IButtonProps {
     onClickHandler?: any;
     text?: string | StringFunction;
     disabled?: any;
+    UIType?: string;
 }
 export interface IButtonState {
     onClickHandler?: any;

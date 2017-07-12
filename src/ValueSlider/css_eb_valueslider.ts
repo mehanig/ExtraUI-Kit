@@ -1,3 +1,4 @@
+import {CONST as C} from "../css_const";
 import {ICSSProperties} from "../css_types";
 
 const MainBase: ICSSProperties = {
@@ -6,10 +7,10 @@ const MainBase: ICSSProperties = {
   flexDirection: "row",
   alignItems: "center",
   fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-  borderBottom: "1px solid black",
+  borderBottom: `1px solid ${C.UnderlineColor}`,
   height: "20px",
-  color: "#fff",
-  fontSize: 11,
+  color: C.TextColor,
+  fontSize: C.FontSize,
   padding: "2px 2px",
   outline: "none",
   userSelect: "none",

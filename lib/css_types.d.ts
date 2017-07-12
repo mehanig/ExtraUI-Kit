@@ -26,6 +26,7 @@ interface ICSSProperties {
     listStyle?: string;
     alignSelf?: string;
     overflow?: string;
+    backgroundRepeat?: string;
     ":hover"?: object;
     ":focus"?: object;
     ":active"?: object;

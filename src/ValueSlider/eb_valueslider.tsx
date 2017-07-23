@@ -7,6 +7,7 @@ import * as Icons from "../Icons/_allIcons";
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
+export type AnyToVoid = (f: any) => void;
 
 export interface IValueSliderProps {
   children?: React.ReactChild,
@@ -18,7 +19,8 @@ export interface IValueSliderProps {
   currentValue?: number,
   notifyOnChange?: StringToVoid,
   sizeH?: number,
-  icon?: string
+  icon?: string,
+  iconClick?: AnyToVoid
 }
 
 export interface IValueSliderState {
@@ -74,7 +76,10 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       );
     const EditBoxSlider =
       (
-        <span style={[css.Draggable]} onClick={this.unmountEditValueBoxSave}>
+        <span
+          style={[css.Draggable]}
+          onClick={this.unmountEditValueBoxSave}
+        >
           <input
             style={[css.InputField]}
             value={this.state.tmpValue}
@@ -85,12 +90,22 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
         </span>
       );
     const IconComponentOpt = this.props.icon ? Icons[this.props.icon] : false;
+    const IconComponentWithClick = this.props.icon && this.props.iconClick ?
+      (
+        <span
+          style={{cursor: 'pointer'}}
+          onClick={(e) => { this.props.iconClick(e)}}
+        >
+          <IconComponentOpt/>
+        </span>
+      )
+      : <IconComponentOpt/>;
     return (
       <div>
         <Radium.StyleRoot>
           <div style={mainBase}>
             <span style={[css.Title]}>{this.state.title}</span>
-            {IconComponentOpt ? <IconComponentOpt/> : null}
+            {IconComponentWithClick && IconComponentOpt ? IconComponentWithClick : null}
             {!this.state.isEditBoxMounted ? noEditBoxSlider : EditBoxSlider}
           </div>
         </Radium.StyleRoot>

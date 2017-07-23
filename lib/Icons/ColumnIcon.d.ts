@@ -1,5 +1,8 @@
 import * as React from "react";
-declare class ColumnIcon extends React.Component<{}, {}> {
+declare class ColumnIconActive extends React.Component<{}, {}> {
     render(): JSX.Element;
 }
-export { ColumnIcon };
+declare class ColumnIconInactive extends React.Component<{}, {}> {
+    render(): JSX.Element;
+}
+export { ColumnIconActive, ColumnIconInactive };

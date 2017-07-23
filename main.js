@@ -29,9 +29,11 @@ exports.Icons.RadiusIcon = require("./lib/Icons/RadiusIcon").RadiusIcon;
 
 exports.Icons.RotateIcon = require("./lib/Icons/RotateIcon").RotateIcon;
 
-exports.Icons.RowIcon = require("./lib/Icons/RowIcon").RowIcon;
+exports.Icons.RowIconActive = require("./lib/Icons/RowIcon").RowIconActive;
+exports.Icons.RowIconInactive = require("./lib/Icons/RowIcon").RowIconInactive;
 
-exports.Icons.ColumnIcon = require("./lib/Icons/ColumnIcon").ColumnIcon;
+exports.Icons.ColumnIconActive = require("./lib/Icons/ColumnIcon").ColumnIconActive;
+exports.Icons.ColumnIconInactive = require("./lib/Icons/ColumnIcon").ColumnIconInactive;
 
 exports.Icons.SpacingX = require("./lib/Icons/SpacingIcons").SpacingX;
 exports.Icons.SpacingY = require("./lib/Icons/SpacingIcons").SpacingY;

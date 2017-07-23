@@ -35,5 +35,9 @@ interface ICSSProperties {
     boxSizing?: string;
     minWidth?: string;
     maxWidth?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
 }
 export { ICSSProperties };

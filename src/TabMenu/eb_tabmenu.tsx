@@ -17,6 +17,7 @@ export interface ITabMenuProps {
   disabled?: any,
   textValues?: [string | StringFunction],
   selectedOption?: string,
+  title?: string,
   notifyOnChange?: StringToVoid
 }
 
@@ -81,11 +82,17 @@ class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
         {tabs}
       </div>
     );
+    const tabHeadingWithTitle: JSX.Element = (
+      <div className="extraui-kit__tabmenu-tabWithTitleStyle" style={[css.tabWithTitleStyle]}>
+        <span>{this.props.title}</span>
+        {tabHeading}
+      </div>
+    )
     return (
       <div>
         <Radium.StyleRoot>
           <div style={stylesLiArr}>
-            {tabHeading}
+            {this.props.title ? tabHeadingWithTitle : tabHeading}
             <div>
               {selectedTabContent}
             </div>

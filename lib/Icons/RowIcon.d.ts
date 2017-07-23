@@ -1,5 +1,8 @@
 import * as React from "react";
-declare class RowIcon extends React.Component<{}, {}> {
+declare class RowIconActive extends React.Component<{}, {}> {
     render(): JSX.Element;
 }
-export { RowIcon };
+declare class RowIconInactive extends React.Component<{}, {}> {
+    render(): JSX.Element;
+}
+export { RowIconActive, RowIconInactive };

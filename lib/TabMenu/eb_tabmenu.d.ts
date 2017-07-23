@@ -9,6 +9,7 @@ export interface ITabMenuProps {
     disabled?: any;
     textValues?: [string | StringFunction];
     selectedOption?: string;
+    title?: string;
     notifyOnChange?: StringToVoid;
 }
 export interface ITabMenuState {

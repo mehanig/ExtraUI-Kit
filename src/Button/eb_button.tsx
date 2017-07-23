@@ -42,7 +42,8 @@ class EBButton extends React.Component<IButtonProps, IButtonState> {
     return (
       <div>
         <Radium.StyleRoot>
-          <div style={[stylesArr]} onClick={onClick}><p style={[CssPBase]}>{this.state.buttonText}</p></div>
+          <div className="extraui-kit__button-main" style={[stylesArr]} onClick={onClick}>
+            <p style={[CssPBase]}>{this.state.buttonText}</p></div>
         </Radium.StyleRoot>
       </div>
     );

@@ -6,7 +6,6 @@ const TabMenuBase: ICSSProperties = {
   flexDirection: "column",
   fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
   border: 0,
-  padding: "2px 2px",
   outline: "none",
   userSelect: "none",
   listStyle: "none",
@@ -26,7 +25,7 @@ const tabsStyle: ICSSProperties = {
 
 const tabBase: ICSSProperties = {
   padding: "6px 5px 3px 5px",
-  margin: "auto 5px 3px 5px",
+  margin: "auto 5px 0px 5px",
   cursor: "pointer",
 };
 
@@ -34,8 +33,17 @@ const selectedTab: ICSSProperties = {
   borderBottom: `2px solid ${C.UnderlineColor}`,
 };
 
+const tabWithTitleStyle: ICSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingLeft: '10px',
+  background: C.Darken50,
+  marginBottom: '10px'
+}
+
 const notSelectedTab: ICSSProperties = {
 
 };
 
-export { TabMenuBase, selectedTab, notSelectedTab, tabsStyle, tabBase };
+export { TabMenuBase, selectedTab, notSelectedTab, tabsStyle, tabBase, tabWithTitleStyle };

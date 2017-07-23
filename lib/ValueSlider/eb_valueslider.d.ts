@@ -11,6 +11,7 @@ export interface IValueSliderProps {
     currentValue?: number;
     notifyOnChange?: StringToVoid;
     sizeH?: number;
+    icon?: string;
 }
 export interface IValueSliderState {
     isDisabled?: boolean;

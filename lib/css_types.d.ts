@@ -27,9 +27,13 @@ interface ICSSProperties {
     alignSelf?: string;
     overflow?: string;
     backgroundRepeat?: string;
+    background?: string;
     ":hover"?: object;
     ":focus"?: object;
     ":active"?: object;
     ":checked"?: object;
+    boxSizing?: string;
+    minWidth?: string;
+    maxWidth?: string;
 }
 export { ICSSProperties };

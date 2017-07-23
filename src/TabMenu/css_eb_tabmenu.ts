@@ -13,6 +13,7 @@ const TabMenuBase: ICSSProperties = {
   overflow: "hidden",
   fontSize: C.FontSize,
   color: C.TextColor,
+  boxSizing: 'border-box'
 };
 
 const tabsStyle: ICSSProperties = {

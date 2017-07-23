@@ -4,6 +4,7 @@ import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_tabmenu";
 import ReactChild = React.ReactChild;
 import { Tab } from "./eb_tab";
+import * as Icons from "../Icons/_allIcons";
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
@@ -44,18 +45,33 @@ class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
   public render() {
     const stylesLiArr: [ICSSProperties] =
       this.state.isDisabled ? [css.TabMenuBase] : [css.TabMenuBase];
+    const allTabs = React.Children.map(this.props.children, (child) => {
+      const c = (child as JSX.Element);
+      if (c.props && c.type === Tab) {
+        return child;
+      }
+    });
     const tabs: JSX.Element[] = this.state.values.map((itemValue, index) => {
       const styleTab: [ICSSProperties] = this.state.selectedOption === itemValue ?
         [css.tabBase, css.selectedTab] : [css.tabBase, css.notSelectedTab];
+
+      const tabElement = (allTabs[index] as JSX.Element);
+      const tabIcon = tabElement.props.icon ? tabElement.props.icon : false;
+      const Component = tabIcon ? Icons[tabIcon] : null;
+      const tabContent = tabIcon ? (
+          <span><Component/></span>
+        ) : (
+          <span>{this.state.textValues[index]}</span>
+        );
       return (
         <span key={index} value={itemValue} style={styleTab} onClick={this.onTabClick}>
-          {this.state.textValues[index]}
+          {tabContent}
         </span>
       );
     });
-    const selectedTabContentArr = React.Children.map(this.props.children, (child) => {
+    const selectedTabContentArr = allTabs.filter((child) => {
       const c = (child as JSX.Element);
-      if (c.props && this.state.selectedOption && c.props.value === this.state.selectedOption && c.type === Tab) {
+      if (c.props && this.state.selectedOption && c.props.value === this.state.selectedOption) {
         return child;
       }
     });

@@ -3,11 +3,10 @@ import {ICSSProperties} from "../css_types";
 
 const MainBase: ICSSProperties = {
   display: "flex",
-  justifyContent: "flex-start",
+  justifyContent: "space-between",
   flexDirection: "row",
   alignItems: "center",
   fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-  borderBottom: `1px solid ${C.UnderlineColor}`,
   height: "20px",
   color: C.TextColor,
   fontSize: C.FontSize,
@@ -16,6 +15,7 @@ const MainBase: ICSSProperties = {
   userSelect: "none",
   listStyle: "none",
   margin: "10px",
+  boxSizing: 'border-box'
 };
 
 const Title: ICSSProperties = {
@@ -29,6 +29,11 @@ const Draggable: ICSSProperties = {
   },
   "cursor": "pointer",
   "marginLeft": "auto",
+  "padding": "3px 12px 3px 12px",
+  "background": C.Darken20,
+  minWidth: "40px",
+  maxWidth: "40px",
+  boxSizing: "border-box"
 };
 
 const InputField: ICSSProperties = {

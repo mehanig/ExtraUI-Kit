@@ -3,6 +3,7 @@ import * as React from "react";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_valueslider";
 import ChangeEvent = React.ChangeEvent;
+import * as Icons from "../Icons/_allIcons";
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
@@ -16,7 +17,8 @@ export interface IValueSliderProps {
   title: string | StringFunction,
   currentValue?: number,
   notifyOnChange?: StringToVoid,
-  sizeH?: number
+  sizeH?: number,
+  icon?: string
 }
 
 export interface IValueSliderState {
@@ -82,11 +84,13 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
           />
         </span>
       );
+    const IconComponentOpt = this.props.icon ? Icons[this.props.icon] : false;
     return (
       <div>
         <Radium.StyleRoot>
           <div style={mainBase}>
             <span style={[css.Title]}>{this.state.title}</span>
+            {IconComponentOpt ? <IconComponentOpt/> : null}
             {!this.state.isEditBoxMounted ? noEditBoxSlider : EditBoxSlider}
           </div>
         </Radium.StyleRoot>

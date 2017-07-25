@@ -119,6 +119,12 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
 
   private _updateStateAndNotify(currentValue: number) {
     if (!this.state.isDisabled) {
+      if (this.props.minValue > currentValue) {
+        currentValue = this.props.minValue;
+      }
+      if (this.props.maxValue < currentValue) {
+        currentValue = this.props.maxValue;
+      }
       if (this.props.notifyOnChange) {
         this.setState({currentValue}, () => {
           this.props.notifyOnChange(currentValue);
@@ -135,7 +141,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     this.setState({
       mouseMoveReady: true,
       initialXPos: mouseEvent.pageX,
-      initialSliderValue: this.state.currentValue ? this.state.currentValue : (min + max) / 2,
+      initialSliderValue: !isNaN(this.state.currentValue) ? this.state.currentValue : (min + max) / 2,
     });
     window.addEventListener("mousemove", this.onMouseMove);
     window.addEventListener("mouseup", this.onMouseUp);

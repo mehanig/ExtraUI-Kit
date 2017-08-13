@@ -86,6 +86,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
             ref={this.focusInput}
             onChange={this.handleInputChange}
             onKeyPress={this.handleInputKeyPress}
+            className="extraui-valueslider__input"
           />
         </span>
       );

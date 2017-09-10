@@ -32,7 +32,9 @@ export interface IValueSliderState {
   currentXPos: number,
   initialXPos?: number,
   initialSliderValue?: number,
-  isEditBoxMounted: boolean
+  isEditBoxMounted: boolean,
+  input_id?: string,
+  shiftPressed: boolean
 }
 
 class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
@@ -48,6 +50,8 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       currentXPos: 0,
       isEditBoxMounted: false,
       tmpValue: "",
+      input_id: String(Math.random()),
+      shiftPressed: false
     };
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
@@ -57,9 +61,14 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputKeyPress = this.handleInputKeyPress.bind(this);
     this.focusInput = this.focusInput.bind(this);
+    this.outsideEditValueBoxClick = this.outsideEditValueBoxClick.bind(this);
+    // this.handlePressedShift = this.handlePressedShift.bind(this);
+    // this.handleReleasedShift = this.handleReleasedShift.bind(this);
+
   }
 
   public render() {
+    const rand_tmp_id = String(Math.random());
     const mainBase: [ICSSProperties] =
       this.props.sizeH ? [css.MainBase, {width: `${this.props.sizeH}px`}] : [css.MainBase];
     const noEditBoxSlider =
@@ -70,6 +79,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
           onMouseMove={this.onMouseMove}
           onDoubleClick={this.mountEditValueBox}
           onMouseUp={this.onMouseUp}
+          tabIndex={0}
         >
           {this.state.currentValue}
         </span>
@@ -78,14 +88,15 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       (
         <span
           style={[css.Draggable]}
-          onClick={this.unmountEditValueBoxSave}
         >
           <input
+            id={this.state.input_id}
             style={[css.InputField]}
             value={this.state.tmpValue}
             ref={this.focusInput}
             onChange={this.handleInputChange}
             onKeyPress={this.handleInputKeyPress}
+            onFocus={this.selectTextIfFocused}
             className="extraui-valueslider__input"
           />
         </span>
@@ -114,6 +125,10 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     );
   }
 
+  private selectTextIfFocused(e: any) {
+    e.target.select();
+  }
+
   private focusInput(input: any): any {
     return input && input.focus();
   }
@@ -139,6 +154,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
   private onMouseDown(mouseEvent: React.MouseEvent<HTMLSpanElement>): void {
     const max: number = this.props.maxValue;
     const min: number = this.props.minValue;
+    // console.log(mouseEvent);
     this.setState({
       mouseMoveReady: true,
       initialXPos: mouseEvent.pageX,
@@ -146,6 +162,9 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     });
     window.addEventListener("mousemove", this.onMouseMove);
     window.addEventListener("mouseup", this.onMouseUp);
+
+    // window.addEventListener("keydown", this.handlePressedShift);
+    // window.addEventListener("keyup", this.handleReleasedShift);
   }
 
   private onMouseMove(mouseEvent: any): void {
@@ -153,7 +172,8 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       const initialValue = this.state.initialSliderValue;
       const initialX = this.state.initialXPos;
       const currX = mouseEvent.pageX;
-      const currValue = initialValue + currX - initialX;
+      const modifier = this.state.shiftPressed ? 10 : 1
+      const currValue = initialValue + modifier * (currX - initialX);
       this._updateStateAndNotify(currValue);
     }
   }
@@ -169,6 +189,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
   private mountEditValueBox(): void {
     const isEditBoxMounted = !this.state.isEditBoxMounted;
     this.setState({isEditBoxMounted, tmpValue: this.state.currentValue});
+    window.addEventListener('click', this.outsideEditValueBoxClick);
   }
 
   private unmountEditValueBoxSave(): void {
@@ -180,6 +201,14 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     }
     const isEditBoxMounted = !this.state.isEditBoxMounted;
     this.setState({isEditBoxMounted});
+    window.removeEventListener('click', this.outsideEditValueBoxClick);
+  }
+
+  private outsideEditValueBoxClick(mouseEvent: any): void {
+    const _id = mouseEvent.target.id
+    if (_id != this.state.input_id) {
+      this.unmountEditValueBoxSave();
+    }
   }
 
   private handleInputChange(e: ChangeEvent<HTMLInputElement>) {
@@ -191,6 +220,27 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       this.unmountEditValueBoxSave();
     }
   }
+
+  // private handlePressedShift(e) {
+  //   console.log(e)
+  //   console.log(e.shiftKey);
+  //   if (e.shiftKey) {
+  //     this.setState({shiftPressed: true});
+  //   }
+  // }
+  //
+  // private handleReleasedShift(e) {
+  //   console.log(e.shiftKey);
+  //   if (e.shiftKey) {
+  //     this.setState({shiftPressed: false});
+  //   }
+  // }
+
+  // componentWillUnmount() {
+  //   super.componentWillUnmount();
+  //   window.removeEventListener("keydown", this.handlePressedShift);
+  //   window.removeEventListener("keyup", this.handleReleasedShift);
+  // }
 }
 
 export { EBValueSlider };

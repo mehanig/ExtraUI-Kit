@@ -18,7 +18,8 @@ export interface ITabMenuProps {
   textValues?: [string | StringFunction],
   selectedOption?: string,
   title?: string,
-  notifyOnChange?: StringToVoid
+  notifyOnChange?: StringToVoid,
+  onClick?: any
 }
 
 export interface ITabMenuState {
@@ -89,7 +90,7 @@ class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
       </div>
     )
     return (
-      <div>
+      <div onClick={this.props.onClick ? this.props.onClick : null} className={this.props.onClick ? "EB_TabClickable" : ""}>
         <Radium.StyleRoot>
           <div style={stylesLiArr}>
             {this.props.title ? tabHeadingWithTitle : tabHeading}
@@ -105,6 +106,9 @@ class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
   private onTabClick(clickEvent: React.MouseEvent<HTMLSpanElement>): void {
     const safeTypeValue: string = clickEvent.currentTarget.getAttribute("value");
     this.setState({selectedOption: safeTypeValue});
+    if (this.props.notifyOnChange) {
+      this.props.notifyOnChange(safeTypeValue);
+    }
   }
 }
 

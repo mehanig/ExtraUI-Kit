@@ -25,10 +25,13 @@ export interface IValueSliderState {
     initialXPos?: number;
     initialSliderValue?: number;
     isEditBoxMounted: boolean;
+    input_id?: string;
+    shiftPressed: boolean;
 }
 declare class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
     constructor(props: IValueSliderProps);
     render(): JSX.Element;
+    private selectTextIfFocused(e);
     private focusInput(input);
     private _updateStateAndNotify(currentValue);
     private onMouseDown(mouseEvent);
@@ -36,6 +39,7 @@ declare class EBValueSlider extends React.Component<IValueSliderProps, IValueSli
     private onMouseUp(mouseEvent);
     private mountEditValueBox();
     private unmountEditValueBoxSave();
+    private outsideEditValueBoxClick(mouseEvent);
     private handleInputChange(e);
     private handleInputKeyPress(e);
 }

@@ -11,6 +11,7 @@ export interface ITabMenuProps {
     selectedOption?: string;
     title?: string;
     notifyOnChange?: StringToVoid;
+    onClick?: any;
 }
 export interface ITabMenuState {
     name: string;

@@ -6,7 +6,7 @@ const MainBase: ICSSProperties = {
   justifyContent: "space-between",
   flexDirection: "row",
   alignItems: "center",
-  fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
   height: "20px",
   color: C.TextColor,
   fontSize: C.FontSize,

@@ -7,7 +7,7 @@ const CssBase: ICSSProperties = {
   justifyContent: "center",
   alignContent: "center",
   flexDirection: "column",
-  fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
   color: C.TextColor,
   border: 0,
   width: "140px",

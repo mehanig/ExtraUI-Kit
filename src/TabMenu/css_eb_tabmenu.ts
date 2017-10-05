@@ -4,7 +4,7 @@ import {ICSSProperties} from "../css_types";
 const TabMenuBase: ICSSProperties = {
   display: "flex",
   flexDirection: "column",
-  fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
   border: 0,
   outline: "none",
   userSelect: "none",

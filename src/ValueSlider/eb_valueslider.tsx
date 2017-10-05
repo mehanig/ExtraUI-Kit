@@ -8,6 +8,7 @@ import * as Icons from "../Icons/_allIcons";
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
 export type AnyToVoid = (f: any) => void;
+export type VoidFunction = () => void;
 
 export interface IValueSliderProps {
   children?: React.ReactChild,
@@ -18,6 +19,7 @@ export interface IValueSliderProps {
   title: string | StringFunction,
   currentValue?: number,
   notifyOnChange?: StringToVoid,
+  slideDidEnd?: VoidFunction,
   sizeH?: number,
   icon?: string,
   iconClick?: AnyToVoid
@@ -184,6 +186,9 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     });
     window.removeEventListener("mousemove", this.onMouseMove);
     window.removeEventListener("mouseup", this.onMouseUp);
+    if (this.props.slideDidEnd) {
+      this.props.slideDidEnd();
+    }
   }
 
   private mountEditValueBox(): void {

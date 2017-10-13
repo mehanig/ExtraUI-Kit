@@ -21,11 +21,8 @@ export interface ITabMenuState {
     title?: string | StringFunction;
     selectedOption?: string;
 }
-declare class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
+export declare class TabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
     constructor(props: ITabMenuProps);
     render(): JSX.Element;
     private onTabClick(clickEvent);
 }
-export { EBTabMenu };
-declare const TabMenu: any;
-export { TabMenu };

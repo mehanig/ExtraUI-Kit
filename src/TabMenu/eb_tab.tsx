@@ -7,7 +7,7 @@ export interface ITabProps {
   icon?: string
 }
 
-class Tab extends React.Component<ITabProps, {}> {
+export class Tab extends React.Component<ITabProps, {}> {
   constructor(props: ITabProps) {
     super();
   }
@@ -19,4 +19,3 @@ class Tab extends React.Component<ITabProps, {}> {
     );
   }
 }
-export { Tab };

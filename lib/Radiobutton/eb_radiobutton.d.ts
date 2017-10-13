@@ -20,13 +20,10 @@ export interface IRadioButtonState {
     title?: string | StringFunction;
     selectedOption?: string;
 }
-declare class EBRadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
+export default class RadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
     constructor(props: IRadioButtonProps);
     render(): JSX.Element;
     private _updateStateAndNotify(selectedOption);
     private handleOptionChange(changeEvent);
     private handleLiClick(clickEvent);
 }
-export { EBRadioButtonList };
-declare const RadioButtonList: any;
-export { RadioButtonList };

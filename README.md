@@ -4,6 +4,13 @@ Set of independent React styled components made to mimic Adobe AfterEffects user
 ### How to use
 `npm install extraui-kit`
 
+### Documentation
+Available at: ---
+
+Or in: `./doc`
+
+Can be generated using: `./node_modules/.bin/esdoc`
+
 ### Codestyle
 
 run tslint from main directory
@@ -11,22 +18,48 @@ run tslint from main directory
 `tslint src/**/*.ts{,x} --fix` 
 
 
-##List of components
+## List of components
 
 
-###Button
+### Button
 
-###Checkbox
+### Checkbox
 
-###RadioButton
+### RadioButton
 
-###ValueSlider
+### ValueSlider
 
+### TabMenu
+
+
+## List of Icons
+
+  - AngleIcon
+  - ColumnIconActive
+  - ColumnIconInactive
+  - CircleIconActive
+  - CircleIconInactive
+  - CubeIconActive
+  - CubeIconInactive
+  - DimensionsIcon
+  - RadiusIcon
+  - RotateIcon
+  - RotationsRActive
+  - RotationsRInactive
+  - RotationsLActive
+  - RotationsLInactive
+  - RowIconActive
+  - RowIconInactive
+  - SpacingX
+  - SpacingY
+  - SpiralIcon
+  - SquareIconActive
+  - SquareIconInactive
 
 
 ### Extras
 
-Python can be uset to converting image icons to base64
+Python can be used to converting image icons to base64
 
 ```
 import base64

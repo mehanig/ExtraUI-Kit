@@ -30,8 +30,8 @@ export interface ITabMenuState {
   title?: string | StringFunction,
   selectedOption?: string,
 }
-
-class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
+@Radium
+export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
   constructor(props: ITabMenuProps) {
     super();
     this.state = {
@@ -111,7 +111,3 @@ class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
     }
   }
 }
-
-export { EBTabMenu };
-const TabMenu = Radium(EBTabMenu);
-export { TabMenu };

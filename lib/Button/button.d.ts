@@ -13,7 +13,7 @@ export interface IButtonState {
     buttonText?: string | StringFunction;
     isDisabled?: boolean;
 }
-export declare class Button extends React.Component<IButtonProps, IButtonState> {
+export default class Button extends React.Component<IButtonProps, IButtonState> {
     constructor(props: IButtonProps);
     render(): JSX.Element;
     private onClickHandler();

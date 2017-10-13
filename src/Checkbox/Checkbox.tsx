@@ -21,7 +21,8 @@ export interface ICheckboxState {
   isSelected: boolean,
 }
 
-class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
+@Radium
+export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   constructor(props: ICheckboxProps) {
     super();
     this.state = {
@@ -75,7 +76,3 @@ class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
     this._updateStateAndNotify(!this.state.isSelected);
   }
 }
-
-export { EBCheckbox };
-const Checkbox = Radium(EBCheckbox);
-export { Checkbox };

@@ -27,7 +27,8 @@ export interface IRadioButtonState {
   selectedOption?: string,
 }
 
-class EBRadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
+@Radium
+export default class RadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
   constructor(props: IRadioButtonProps) {
     super();
     this.state = {
@@ -102,7 +103,3 @@ class EBRadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonS
     this._updateStateAndNotify(safeSearchTypeValue);
   }
 }
-
-export { EBRadioButtonList };
-const RadioButtonList = Radium(EBRadioButtonList);
-export { RadioButtonList };

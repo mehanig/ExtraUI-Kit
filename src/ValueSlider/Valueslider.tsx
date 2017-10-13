@@ -39,7 +39,8 @@ export interface IValueSliderState {
   shiftPressed: boolean
 }
 
-class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
+@Radium
+export default class ValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
   constructor(props: IValueSliderProps) {
     super();
     const max: number = props.maxValue;
@@ -228,7 +229,3 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       this.props.iconClick(mouseEvent);
   }
 }
-
-export { EBValueSlider };
-const ValueSlider = Radium(EBValueSlider);
-export { ValueSlider };

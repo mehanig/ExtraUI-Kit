@@ -13,7 +13,7 @@ export interface ICheckboxState {
     isDisabled: boolean;
     isSelected: boolean;
 }
-declare class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState> {
+export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     constructor(props: ICheckboxProps);
     componentWillReceiveProps(nextProps: ICheckboxProps): void;
     render(): JSX.Element;
@@ -21,6 +21,3 @@ declare class EBCheckbox extends React.Component<ICheckboxProps, ICheckboxState>
     private handleOptionChange();
     private handleNameClick();
 }
-export { EBCheckbox };
-declare const Checkbox: any;
-export { Checkbox };

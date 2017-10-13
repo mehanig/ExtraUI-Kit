@@ -20,7 +20,11 @@ export interface IButtonState {
   isDisabled?: boolean
 }
 
-class EBButton extends React.Component<IButtonProps, IButtonState> {
+/**
+ * Button component
+ */
+@Radium
+export default class Button extends React.Component<IButtonProps, IButtonState> {
   constructor(props: IButtonProps) {
     super();
     this.state = {
@@ -51,7 +55,3 @@ class EBButton extends React.Component<IButtonProps, IButtonState> {
     this.state.onClickHandler();
   }
 }
-
-export { EBButton };
-const Button = Radium(EBButton);
-export { Button };

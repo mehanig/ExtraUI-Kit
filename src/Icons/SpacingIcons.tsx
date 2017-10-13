@@ -14,9 +14,9 @@ class SpacingX extends React.Component<{}, {}> {
 class SpacingY extends React.Component<{}, {}> {
   public render() {
     return (
-      <img style={{'minWidth': '12px'}} src={"data:image/png;" + base64Y}/>
+      <img style={{minWidth: "12px"}} src={"data:image/png;" + base64Y}/>
     );
   }
 }
 
-export { SpacingX, SpacingY }
+export { SpacingX, SpacingY };

@@ -18,7 +18,7 @@ const CssBase: ICSSProperties = {
   cursor: "pointer",
   outline: "none",
   userSelect: "none",
-  boxSizing: 'border-box'
+  boxSizing: "border-box",
 };
 
 const CssActive: ICSSProperties = {

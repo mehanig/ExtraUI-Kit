@@ -19,4 +19,4 @@ class ColumnIconInactive extends React.Component<{}, {}> {
   }
 }
 
-export { ColumnIconActive, ColumnIconInactive }
+export { ColumnIconActive, ColumnIconInactive };

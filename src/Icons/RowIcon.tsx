@@ -19,4 +19,4 @@ class RowIconInactive extends React.Component<{}, {}> {
   }
 }
 
-export { RowIconActive, RowIconInactive }
+export { RowIconActive, RowIconInactive };

@@ -9,4 +9,4 @@ class SpiralIcon extends React.Component<{}, {}> {
   }
 }
 
-export { SpiralIcon }
+export { SpiralIcon };

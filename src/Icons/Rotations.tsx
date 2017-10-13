@@ -37,4 +37,4 @@ class RotationsLInactive extends React.Component<{}, {}> {
   }
 }
 
-export { RotationsRActive, RotationsRInactive, RotationsLActive, RotationsLInactive}
+export { RotationsRActive, RotationsRInactive, RotationsLActive, RotationsLInactive};

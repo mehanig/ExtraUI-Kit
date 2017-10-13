@@ -1,11 +1,11 @@
 import { AngleIcon } from "./AngleIcon";
-import { ColumnIconActive, ColumnIconInactive } from "./ColumnIcon";
 import { CircleIconActive, CircleIconInactive } from "./CircleIcon";
+import { ColumnIconActive, ColumnIconInactive } from "./ColumnIcon";
 import { CubeIconActive, CubeIconInactive } from "./CubeIcon";
 import { DimensionsIcon } from "./DimensionsIcon";
 import { RadiusIcon } from "./RadiusIcon";
 import { RotateIcon } from "./RotateIcon";
-import { RotationsRActive, RotationsRInactive, RotationsLActive, RotationsLInactive } from "./Rotations";
+import { RotationsLActive, RotationsLInactive, RotationsRActive, RotationsRInactive } from "./Rotations";
 import { RowIconActive, RowIconInactive } from "./RowIcon";
 import { SpacingX, SpacingY } from "./SpacingIcons";
 import { SpiralIcon } from "./SpiralIcon";

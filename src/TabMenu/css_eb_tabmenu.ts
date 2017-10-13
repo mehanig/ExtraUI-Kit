@@ -12,7 +12,7 @@ const TabMenuBase: ICSSProperties = {
   overflow: "hidden",
   fontSize: C.FontSize,
   color: C.TextColor,
-  boxSizing: 'border-box'
+  boxSizing: "border-box",
 };
 
 const tabsStyle: ICSSProperties = {
@@ -34,13 +34,13 @@ const selectedTab: ICSSProperties = {
 };
 
 const tabWithTitleStyle: ICSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingLeft: '10px',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  paddingLeft: "10px",
   background: C.Darken50,
-  marginBottom: '10px'
-}
+  marginBottom: "10px",
+};
 
 const notSelectedTab: ICSSProperties = {
 

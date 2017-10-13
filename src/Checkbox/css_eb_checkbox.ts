@@ -15,7 +15,7 @@ const LiBase: ICSSProperties = {
   listStyle: "none",
   fontSize: 12,
   color: C.TextColor,
-  boxSizing: 'border-box'
+  boxSizing: "border-box",
 };
 
 const LiDisabled: ICSSProperties = {

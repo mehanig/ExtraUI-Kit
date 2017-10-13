@@ -19,4 +19,4 @@ class CubeIconInactive extends React.Component<{}, {}> {
   }
 }
 
-export { CubeIconActive, CubeIconInactive }
+export { CubeIconActive, CubeIconInactive };

@@ -44,6 +44,7 @@ declare class EBValueSlider extends React.Component<IValueSliderProps, IValueSli
     private outsideEditValueBoxClick(mouseEvent);
     private handleInputChange(e);
     private handleInputKeyPress(e);
+    private handleIconClick(mouseEvent);
 }
 export { EBValueSlider };
 declare const ValueSlider: any;

@@ -19,4 +19,4 @@ class CircleIconInactive extends React.Component<{}, {}> {
   }
 }
 
-export { CircleIconActive, CircleIconInactive }
+export { CircleIconActive, CircleIconInactive };

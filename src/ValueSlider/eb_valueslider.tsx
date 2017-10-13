@@ -53,7 +53,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       isEditBoxMounted: false,
       tmpValue: "",
       input_id: String(Math.random()),
-      shiftPressed: false
+      shiftPressed: false,
     };
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
@@ -62,15 +62,13 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     this.unmountEditValueBoxSave = this.unmountEditValueBoxSave.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputKeyPress = this.handleInputKeyPress.bind(this);
+    this.handleIconClick = this.handleIconClick.bind(this);
     this.focusInput = this.focusInput.bind(this);
     this.outsideEditValueBoxClick = this.outsideEditValueBoxClick.bind(this);
-    // this.handlePressedShift = this.handlePressedShift.bind(this);
-    // this.handleReleasedShift = this.handleReleasedShift.bind(this);
 
   }
 
   public render() {
-    const rand_tmp_id = String(Math.random());
     const mainBase: [ICSSProperties] =
       this.props.sizeH ? [css.MainBase, {width: `${this.props.sizeH}px`}] : [css.MainBase];
     const noEditBoxSlider =
@@ -107,8 +105,8 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     const IconComponentWithClick = this.props.icon && this.props.iconClick ?
       (
         <span
-          style={{cursor: 'pointer'}}
-          onClick={(e) => { this.props.iconClick(e)}}
+          style={{cursor: "pointer"}}
+          onClick={this.handleIconClick}
         >
           <IconComponentOpt/>
         </span>
@@ -174,7 +172,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
       const initialValue = this.state.initialSliderValue;
       const initialX = this.state.initialXPos;
       const currX = mouseEvent.pageX;
-      const modifier = this.state.shiftPressed ? 10 : 1
+      const modifier = this.state.shiftPressed ? 10 : 1;
       const currValue = initialValue + modifier * (currX - initialX);
       this._updateStateAndNotify(currValue);
     }
@@ -194,7 +192,7 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
   private mountEditValueBox(): void {
     const isEditBoxMounted = !this.state.isEditBoxMounted;
     this.setState({isEditBoxMounted, tmpValue: this.state.currentValue});
-    window.addEventListener('click', this.outsideEditValueBoxClick);
+    window.addEventListener("click", this.outsideEditValueBoxClick);
   }
 
   private unmountEditValueBoxSave(): void {
@@ -206,12 +204,12 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     }
     const isEditBoxMounted = !this.state.isEditBoxMounted;
     this.setState({isEditBoxMounted});
-    window.removeEventListener('click', this.outsideEditValueBoxClick);
+    window.removeEventListener("click", this.outsideEditValueBoxClick);
   }
 
   private outsideEditValueBoxClick(mouseEvent: any): void {
-    const _id = mouseEvent.target.id
-    if (_id != this.state.input_id) {
+    const target_id = mouseEvent.target.id;
+    if (target_id !== this.state.input_id) {
       this.unmountEditValueBoxSave();
     }
   }
@@ -226,26 +224,9 @@ class EBValueSlider extends React.Component<IValueSliderProps, IValueSliderState
     }
   }
 
-  // private handlePressedShift(e) {
-  //   console.log(e)
-  //   console.log(e.shiftKey);
-  //   if (e.shiftKey) {
-  //     this.setState({shiftPressed: true});
-  //   }
-  // }
-  //
-  // private handleReleasedShift(e) {
-  //   console.log(e.shiftKey);
-  //   if (e.shiftKey) {
-  //     this.setState({shiftPressed: false});
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   super.componentWillUnmount();
-  //   window.removeEventListener("keydown", this.handlePressedShift);
-  //   window.removeEventListener("keyup", this.handleReleasedShift);
-  // }
+  private handleIconClick(mouseEvent: any): void {
+      this.props.iconClick(mouseEvent);
+  }
 }
 
 export { EBValueSlider };

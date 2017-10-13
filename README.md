@@ -1,8 +1,14 @@
-#EXTRAUI-KIT
+# EXTRAUI-KIT
 Set of independent React styled components made to mimic Adobe AfterEffects user experience.
 
-###How to use
+### How to use
 `npm install extraui-kit`
+
+### Codestyle
+
+run tslint from main directory
+
+`tslint src/**/*.ts{,x} --fix` 
 
 
 ##List of components

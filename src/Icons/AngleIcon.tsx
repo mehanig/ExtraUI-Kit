@@ -9,4 +9,4 @@ class AngleIcon extends React.Component<{}, {}> {
   }
 }
 
-export { AngleIcon }
+export { AngleIcon };

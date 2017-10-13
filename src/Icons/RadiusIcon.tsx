@@ -9,4 +9,4 @@ class RadiusIcon extends React.Component<{}, {}> {
   }
 }
 
-export { RadiusIcon }
+export { RadiusIcon };

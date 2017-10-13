@@ -9,4 +9,4 @@ class RotateIcon extends React.Component<{}, {}> {
   }
 }
 
-export { RotateIcon }
+export { RotateIcon };

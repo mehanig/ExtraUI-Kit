@@ -33,12 +33,10 @@ class EBButton extends React.Component<IButtonProps, IButtonState> {
 
   public render() {
     const onClick: any = this.state.isDisabled ? null : this.onClickHandler;
-    let stylesArr: [ICSSProperties];
-    if (this.props.UIType === "AE") {
-      stylesArr = this.state.isDisabled ? [AEButton, AECssDisabled] : [AEButton, AECssActive];
-    } else {
-      stylesArr = this.state.isDisabled ? [CssBase, CssDisabled] : [CssBase, CssActive];
-    }
+    const stylesArr: [ICSSProperties] = (this.props.UIType === "AE") ?
+      this.state.isDisabled ? [AEButton, AECssDisabled] : [AEButton, AECssActive]
+    :
+      this.state.isDisabled ? [CssBase, CssDisabled] : [CssBase, CssActive];
     return (
       <div>
         <Radium.StyleRoot>

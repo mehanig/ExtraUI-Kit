@@ -15,7 +15,7 @@ const MainBase: ICSSProperties = {
   userSelect: "none",
   listStyle: "none",
   margin: "10px",
-  boxSizing: 'border-box'
+  boxSizing: "border-box",
 };
 
 const Title: ICSSProperties = {
@@ -31,9 +31,9 @@ const Draggable: ICSSProperties = {
   "marginLeft": "auto",
   "padding": "3px 12px 3px 12px",
   "background": C.Darken20,
-  minWidth: "40px",
-  maxWidth: "40px",
-  boxSizing: "border-box"
+  "minWidth": "40px",
+  "maxWidth": "40px",
+  "boxSizing": "border-box",
 };
 
 const InputField: ICSSProperties = {

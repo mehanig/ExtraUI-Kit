@@ -3,8 +3,8 @@ import * as React from "react";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_tabmenu";
 import ReactChild = React.ReactChild;
-import { Tab } from "./eb_tab";
 import * as Icons from "../Icons/_allIcons";
+import { Tab } from "./eb_tab";
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
@@ -88,7 +88,7 @@ class EBTabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
         <span>{this.props.title}</span>
         {tabHeading}
       </div>
-    )
+    );
     return (
       <div onClick={this.props.onClick ? this.props.onClick : null} className={this.props.onClick ? "EB_TabClickable" : ""}>
         <Radium.StyleRoot>

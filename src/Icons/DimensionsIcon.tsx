@@ -9,4 +9,4 @@ class DimensionsIcon extends React.Component<{}, {}> {
   }
 }
 
-export { DimensionsIcon }
+export { DimensionsIcon };

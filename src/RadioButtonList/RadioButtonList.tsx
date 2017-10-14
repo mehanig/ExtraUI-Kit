@@ -10,7 +10,8 @@ export interface IRadioButtonProps {
   /** Name for Radiobutton Group */
   name: string,
   /** List of available values, if `textValues` list not specified, this array will be used both for displaying
-   * text right of radiobox and for values  */
+   * text right of radiobox and for values
+   */
   values: [string],
   /** Specify if should be disabled */
   disabled?: any,

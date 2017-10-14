@@ -217,8 +217,8 @@ export default class ValueSlider extends React.Component<IValueSliderProps, IVal
   }
 
   private outsideEditValueBoxClick(mouseEvent: any): void {
-    const target_id = mouseEvent.target.id;
-    if (target_id !== this.state.input_id) {
+    const targetId = mouseEvent.target.id;
+    if (targetId !== this.state.input_id) {
       this.unmountEditValueBoxSave();
     }
   }

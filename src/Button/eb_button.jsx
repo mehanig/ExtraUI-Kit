@@ -27,8 +27,9 @@ var Button = (function (_super) {
     function Button(props) {
         var _this = _super.call(this) || this;
         _this.state = {
+            onClickHandler: props.onClickHandler,
             buttonText: props.text || "Button",
-            isDisabled: !!props.disabled,
+            isDisabled: props.disabled ? true : false,
         };
         _this.onClickHandler = _this.onClickHandler.bind(_this);
         return _this;
@@ -46,12 +47,15 @@ var Button = (function (_super) {
         </Radium.StyleRoot>
       </div>);
     };
-    Button.prototype.onClickHandler = function (e, obj) {
-        this.props.onClickHandler(e, obj);
+    Button.prototype.onClickHandler = function () {
+        this.state.onClickHandler();
     };
     return Button;
 }(React.Component));
 Button = __decorate([
     Radium
 ], Button);
-exports.default = Button;
+exports.Button = Button;
+// export { EBButton };
+// const Button = Radium(EBButton);
+// export { Button };

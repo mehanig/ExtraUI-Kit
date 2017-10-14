@@ -1,11 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test Empty Button renders correctly 1`] = `
+exports[`Test Button with AE style renders correctly 1`] = `
 <div>
   <div
     data-radium={true}
   >
     <div
+      className="extraui-kit__button-main"
+      data-radium={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "alignContent": "center",
+          "backgroundColor": "Transparent",
+          "backgroundRepeat": "no-repeat",
+          "border": "1px solid #AAAAAA",
+          "borderRadius": "22px",
+          "color": "#CCCCCC",
+          "cursor": "pointer",
+          "display": "flex",
+          "flexDirection": "column",
+          "fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
+          "fontSize": 12,
+          "height": "22px",
+          "justifyContent": "center",
+          "margin": "10px",
+          "outline": "none",
+          "overflow": "hidden",
+          "padding": "2px 2px",
+          "userSelect": "none",
+          "width": "140px",
+        }
+      }
+    >
+      <p
+        data-radium={true}
+        style={
+          Object {
+            "margin": "auto",
+          }
+        }
+      >
+        Text
+      </p>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Test Button with custom text renders correctly 1`] = `
+<div>
+  <div
+    data-radium={true}
+  >
+    <div
+      className="extraui-kit__button-main"
       data-radium={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -21,12 +84,128 @@ exports[`Test Empty Button renders correctly 1`] = `
           "backgroundColor": "#2391FF",
           "border": 0,
           "borderRadius": "2px",
-          "color": "#fff",
+          "boxSizing": "border-box",
+          "color": "#CCCCCC",
           "cursor": "pointer",
           "display": "flex",
           "flexDirection": "column",
-          "fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
-          "fontSize": 11,
+          "fontFamily": "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
+          "fontSize": 12,
+          "height": "22px",
+          "justifyContent": "center",
+          "margin": "10px",
+          "outline": "none",
+          "padding": "2px 2px",
+          "userSelect": "none",
+          "width": "140px",
+        }
+      }
+    >
+      <p
+        data-radium={true}
+        style={
+          Object {
+            "margin": "auto",
+          }
+        }
+      >
+        Text
+      </p>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Test Empty Button renders correctly 1`] = `
+<div>
+  <div
+    data-radium={true}
+  >
+    <div
+      className="extraui-kit__button-main"
+      data-radium={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "alignContent": "center",
+          "backgroundColor": "#2391FF",
+          "border": 0,
+          "borderRadius": "2px",
+          "boxSizing": "border-box",
+          "color": "#CCCCCC",
+          "cursor": "pointer",
+          "display": "flex",
+          "flexDirection": "column",
+          "fontFamily": "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
+          "fontSize": 12,
+          "height": "22px",
+          "justifyContent": "center",
+          "margin": "10px",
+          "outline": "none",
+          "padding": "2px 2px",
+          "userSelect": "none",
+          "width": "140px",
+        }
+      }
+    >
+      <p
+        data-radium={true}
+        style={
+          Object {
+            "margin": "auto",
+          }
+        }
+      >
+        Button
+      </p>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Test disabled Button renders correctly 1`] = `
+<div>
+  <div
+    data-radium={true}
+  >
+    <div
+      className="extraui-kit__button-main"
+      data-radium={true}
+      onClick={null}
+      style={
+        Object {
+          "alignContent": "center",
+          "backgroundColor": "#393939",
+          "border": 0,
+          "borderRadius": "2px",
+          "boxSizing": "border-box",
+          "color": "#CCCCCC",
+          "cursor": "pointer",
+          "display": "flex",
+          "flexDirection": "column",
+          "fontFamily": "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
+          "fontSize": 12,
           "height": "22px",
           "justifyContent": "center",
           "margin": "10px",

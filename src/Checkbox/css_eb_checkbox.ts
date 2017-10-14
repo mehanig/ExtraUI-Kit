@@ -20,7 +20,7 @@ const Base: ICSSProperties = {
   alignItems: "center",
   listStyle: "none",
   boxSizing: "border-box",
-  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial"
+  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
 };
 
 const Input: ICSSProperties = {

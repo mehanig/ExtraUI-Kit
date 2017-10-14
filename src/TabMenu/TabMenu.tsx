@@ -1,8 +1,8 @@
 import * as Radium from "radium";
 import * as React from "react";
 import {ICSSProperties} from "../css_types";
-import * as css from "./css_eb_tabmenu";
 import Icons from "../Icons/Icons";
+import * as css from "./css_eb_tabmenu";
 import Tab from "./Tab";
 
 export type StringFunction = () => string;
@@ -11,7 +11,8 @@ export type StringToVoid = (f: string | number) => void;
 export interface ITabMenuProps {
   /** Each containing `Tab` component should have one of this values specified as value.
    * List of available values, if `textValues` list not specified, this array will be used both for displaying
-   * text at tabs and for values */
+   * text at tabs and for values
+   */
   values: [string],
   /** Specify if tabs should be non-clickable */
   disabled?: any,

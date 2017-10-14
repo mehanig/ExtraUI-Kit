@@ -49,7 +49,7 @@ export default class Button extends React.Component<IButtonProps, IButtonState> 
     );
   }
 
-  public onClickHandler(e: React.MouseEvent<any>, obj: Object): void {
+  private onClickHandler(e: React.MouseEvent<any>, obj: any): void {
     this.props.onClickHandler(e, obj);
   }
 }

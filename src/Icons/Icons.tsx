@@ -1,3 +1,4 @@
+import * as React from "react";
 import { AngleIcon } from "./AngleIcon";
 import { CircleIconActive, CircleIconInactive } from "./CircleIcon";
 import { ColumnIconActive, ColumnIconInactive } from "./ColumnIcon";
@@ -10,7 +11,6 @@ import { RowIconActive, RowIconInactive } from "./RowIcon";
 import { SpacingX, SpacingY} from "./SpacingIcons";
 import { SpiralIcon } from "./SpiralIcon";
 import { SquareIconActive, SquareIconInactive } from "./SquareIcon";
-import * as React from "react";
 
 const ICON_MAPPING = {
   AngleIcon,
@@ -37,7 +37,7 @@ const ICON_MAPPING = {
 };
 
 export interface IIconsProps {
-  /** Name of Icon, all available names listed in documentation*/
+  /** Name of Icon, all available names listed in documentation */
   type: string
 }
 
@@ -47,6 +47,6 @@ export interface IIconsProps {
 export default class Icons extends React.Component<IIconsProps, {}> {
   public render() {
     const Component = ICON_MAPPING[this.props.type];
-    return <Component/>
+    return <Component/>;
   }
 }

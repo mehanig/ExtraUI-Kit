@@ -12,5 +12,5 @@ export interface IButtonState {
 export default class Button extends React.Component<IButtonProps, IButtonState> {
     constructor(props: IButtonProps);
     render(): JSX.Element;
-    onClickHandler(e: React.MouseEvent<any>, obj: Object): void;
+    private onClickHandler(e, obj);
 }

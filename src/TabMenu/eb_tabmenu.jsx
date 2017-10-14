@@ -18,16 +18,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Radium = require("radium");
 var React = require("react");
-var Icons_1 = require("../Icons/Icons");
 var css = require("./css_eb_tabmenu");
-var Tab_1 = require("./Tab");
+var Icons = require("../Icons/_allIcons");
+var eb_tab_1 = require("./eb_tab");
 var TabMenu = (function (_super) {
     __extends(TabMenu, _super);
     function TabMenu(props) {
         var _this = _super.call(this) || this;
         _this.state = {
             values: props.values,
-            isDisabled: !!props.disabled,
+            isDisabled: props.disabled ? true : false,
+            name: props.name,
             textValues: props.textValues ? props.textValues : props.values,
             selectedOption: props.selectedOption,
         };
@@ -39,7 +40,7 @@ var TabMenu = (function (_super) {
         var stylesLiArr = this.state.isDisabled ? [css.TabMenuBase] : [css.TabMenuBase];
         var allTabs = React.Children.map(this.props.children, function (child) {
             var c = child;
-            if (c.props && c.type === Tab_1.default) {
+            if (c.props && c.type === eb_tab_1.Tab) {
                 return child;
             }
         });
@@ -48,9 +49,11 @@ var TabMenu = (function (_super) {
                 [css.tabBase, css.selectedTab] : [css.tabBase, css.notSelectedTab];
             var tabElement = allTabs[index];
             var tabIcon = tabElement.props.icon ? tabElement.props.icon : false;
-            var Component = tabIcon ? React.createElement(Icons_1.default, { type: tabIcon }) : null;
-            var tabContent = tabIcon ? (React.createElement("span", null, Component)) : (React.createElement("span", null, _this.state.textValues[index]));
-            return (React.createElement("span", { key: index, value: itemValue, style: styleTab, onClick: _this.onTabClick }, tabContent));
+            var Component = tabIcon ? Icons[tabIcon] : null;
+            var tabContent = tabIcon ? (<span><Component /></span>) : (<span>{_this.state.textValues[index]}</span>);
+            return (<span key={index} value={itemValue} style={styleTab} onClick={_this.onTabClick}>
+          {tabContent}
+        </span>);
         });
         var selectedTabContentArr = allTabs.filter(function (child) {
             var c = child;
@@ -59,15 +62,23 @@ var TabMenu = (function (_super) {
             }
         });
         var selectedTabContent = selectedTabContentArr.length ? selectedTabContentArr[0] : null;
-        var tabHeading = (React.createElement("div", { style: [css.tabsStyle] }, tabs));
-        var tabHeadingWithTitle = (React.createElement("div", { className: "extraui-kit__tabmenu-tabWithTitleStyle", style: [css.tabWithTitleStyle] },
-            React.createElement("span", null, this.props.title),
-            tabHeading));
-        return (React.createElement("div", { onClick: this.props.onClick ? this.props.onClick : null, className: this.props.onClick ? "EB_TabClickable" : "" },
-            React.createElement(Radium.StyleRoot, null,
-                React.createElement("div", { style: stylesLiArr },
-                    this.props.title ? tabHeadingWithTitle : tabHeading,
-                    React.createElement("div", null, selectedTabContent)))));
+        var tabHeading = (<div style={[css.tabsStyle]}>
+        {tabs}
+      </div>);
+        var tabHeadingWithTitle = (<div className="extraui-kit__tabmenu-tabWithTitleStyle" style={[css.tabWithTitleStyle]}>
+        <span>{this.props.title}</span>
+        {tabHeading}
+      </div>);
+        return (<div onClick={this.props.onClick ? this.props.onClick : null} className={this.props.onClick ? "EB_TabClickable" : ""}>
+        <Radium.StyleRoot>
+          <div style={stylesLiArr}>
+            {this.props.title ? tabHeadingWithTitle : tabHeading}
+            <div>
+              {selectedTabContent}
+            </div>
+          </div>
+        </Radium.StyleRoot>
+      </div>);
     };
     TabMenu.prototype.onTabClick = function (clickEvent) {
         var safeTypeValue = clickEvent.currentTarget.getAttribute("value");
@@ -81,5 +92,4 @@ var TabMenu = (function (_super) {
 TabMenu = __decorate([
     Radium
 ], TabMenu);
-exports.default = TabMenu;
-//# sourceMappingURL=Tabmenu.js.map
+exports.TabMenu = TabMenu;

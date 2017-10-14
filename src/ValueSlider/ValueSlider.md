@@ -1,7 +1,7 @@
-Valueslider example:
+ValueSlider example:
 
 ```jsx
-<Valueslider
+<ValueSlider
     title="Slider Example: Drag or double click"
     maxValue={1000}
     minValue={1}

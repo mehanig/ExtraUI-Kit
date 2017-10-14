@@ -1,8 +1,18 @@
-Button example:
+Button examples:
 
-```js
-<div>
+Regular button
+```jsx
     <Button/>
-    <Button disabled={true} text="disabled"/>
-</div>
+```
+
+
+Disabled button
+```jsx
+<Button disabled={true} text="disabled"/>
+```
+
+
+Button with `UIType="AE"` is rendered without styling, to be overwritten inside AfterEffects
+```jsx
+    <Button UIType="AE"/>
 ```

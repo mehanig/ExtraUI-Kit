@@ -2,8 +2,6 @@ import * as React from "react";
 export declare type StringToVoid = (f: string | number | boolean) => void;
 export interface ICheckboxProps {
     name: string;
-    children?: React.ReactChild;
-    className?: string;
     selected?: boolean;
     disabled?: boolean;
     notifyOnChange?: StringToVoid;

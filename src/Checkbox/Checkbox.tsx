@@ -7,11 +7,13 @@ import Props = React.Props;
 export type StringToVoid = (f: string | number | boolean) => void;
 
 export interface ICheckboxProps {
+  /** Text to appear right after checkbox element */
   name: string,
-  children?: React.ReactChild,
-  className?: string,
+  /** Specify if checkbox should be selected when rendered */
   selected?: boolean,
+  /** Specify if checkbox should be selected when rendered */
   disabled?: boolean,
+  /** Callback function to be invoked when checkbox selected state is changed */
   notifyOnChange?: StringToVoid
 }
 
@@ -21,6 +23,9 @@ export interface ICheckboxState {
   isSelected: boolean,
 }
 
+/**
+ * Checkbox component
+ */
 @Radium
 export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   constructor(props: ICheckboxProps) {

@@ -1,23 +1,6 @@
 import {CONST as C} from "../css_const";
 import {ICSSProperties} from "../css_types";
 
-const LiBase: ICSSProperties = {
-  display: "flex",
-  justifyContent: "flex-start",
-  flexDirection: "row",
-  alignItems: "center",
-  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
-  border: 0,
-  height: "20px",
-  padding: "2px 2px",
-  outline: "none",
-  userSelect: "none",
-  listStyle: "none",
-  fontSize: 12,
-  color: C.TextColor,
-  boxSizing: "border-box",
-};
-
 const LiDisabled: ICSSProperties = {
   backgroundColor: "#989898",
 };
@@ -27,6 +10,17 @@ const Base: ICSSProperties = {
   float: "left",
   flexDirection: "row",
   margin: "10px",
+  fontSize: 12,
+  color: C.TextColor,
+  border: 0,
+  height: "20px",
+  padding: "2px 2px",
+  outline: "none",
+  userSelect: "none",
+  alignItems: "center",
+  listStyle: "none",
+  boxSizing: "border-box",
+  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial"
 };
 
 const Input: ICSSProperties = {
@@ -49,8 +43,8 @@ const Text: ICSSProperties = {
 };
 
 const Title: ICSSProperties = {
-  margin: "0 0 8px 2px",
+  marginLeft: "0.3em",
   cursor: "pointer",
 };
 
-export {LiBase, LiDisabled, Base, Text, Input, InputDisabled, InputActive, Title};
+export {LiDisabled, Base, Text, Input, InputDisabled, InputActive, Title};

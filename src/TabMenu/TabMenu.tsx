@@ -2,9 +2,8 @@ import * as Radium from "radium";
 import * as React from "react";
 import {ICSSProperties} from "../css_types";
 import * as css from "./css_eb_tabmenu";
-import ReactChild = React.ReactChild;
-import * as Icons from "../Icons/_allIcons";
-import { Tab } from "./eb_tab";
+import Icons from "../Icons/Icons";
+import Tab from "./Tab";
 
 export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
@@ -30,13 +29,14 @@ export interface ITabMenuState {
   title?: string | StringFunction,
   selectedOption?: string,
 }
+
 @Radium
 export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
   constructor(props: ITabMenuProps) {
     super();
     this.state = {
       values: props.values,
-      isDisabled: props.disabled ? true : false,
+      isDisabled: !!props.disabled,
       name: props.name,
       textValues: props.textValues ? props.textValues : props.values,
       selectedOption: props.selectedOption,
@@ -59,9 +59,9 @@ export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuStat
 
       const tabElement = (allTabs[index] as JSX.Element);
       const tabIcon = tabElement.props.icon ? tabElement.props.icon : false;
-      const Component = tabIcon ? Icons[tabIcon] : null;
+      const Component = tabIcon ? <Icons type={tabIcon}/> : null;
       const tabContent = tabIcon ? (
-          <span><Component/></span>
+          <span>{Component}</span>
         ) : (
           <span>{this.state.textValues[index]}</span>
         );

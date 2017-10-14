@@ -4,8 +4,6 @@ export declare type StringToVoid = (f: string | number) => void;
 export declare type AnyToVoid = (f: any) => void;
 export declare type VoidFunction = () => void;
 export interface IValueSliderProps {
-    children?: React.ReactChild;
-    className?: string;
     disabled?: boolean;
     maxValue: number;
     minValue: number;

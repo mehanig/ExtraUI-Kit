@@ -5,7 +5,7 @@ export interface ITabProps {
     value: string;
     icon?: string;
 }
-export declare class Tab extends React.Component<ITabProps, {}> {
+export default class Tab extends React.Component<ITabProps, {}> {
     constructor(props: ITabProps);
     render(): JSX.Element;
 }

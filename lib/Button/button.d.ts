@@ -1,20 +1,16 @@
 import * as React from "react";
-export declare type StringFunction = () => string;
 export interface IButtonProps {
-    children?: React.ReactChild;
-    className?: string;
     onClickHandler?: any;
-    text?: string | StringFunction;
+    text?: string;
     disabled?: any;
     UIType?: string;
 }
 export interface IButtonState {
-    onClickHandler?: any;
-    buttonText?: string | StringFunction;
+    buttonText?: string;
     isDisabled?: boolean;
 }
 export default class Button extends React.Component<IButtonProps, IButtonState> {
     constructor(props: IButtonProps);
     render(): JSX.Element;
-    private onClickHandler();
+    onClickHandler(e: React.MouseEvent<any>, obj: Object): void;
 }

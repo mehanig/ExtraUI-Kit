@@ -8,8 +8,6 @@ export type StringToVoid = (f: string | number) => void;
 
 export interface IRadioButtonProps {
   name: string,
-  children?: React.ReactChild,
-  className?: string,
   values: [string],
   disabled?: any,
   textValues?: [string | StringFunction],
@@ -27,13 +25,16 @@ export interface IRadioButtonState {
   selectedOption?: string,
 }
 
+/**
+ * Group of radiobuttons
+ */
 @Radium
-export default class RadioButtonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
+export default class RadiobuttonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
   constructor(props: IRadioButtonProps) {
     super();
     this.state = {
       values: props.values,
-      isDisabled: props.disabled ? true : false,
+      isDisabled: !!props.disabled,
       name: props.name,
       textValues: props.textValues ? props.textValues : props.values,
       title: props.title,

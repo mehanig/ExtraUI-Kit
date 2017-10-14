@@ -11,15 +11,25 @@ export type AnyToVoid = (f: any) => void;
 export type VoidFunction = () => void;
 
 export interface IValueSliderProps {
+  /** Specify if slider should be non clickable and non draggable */
   disabled?: boolean,
+  /** Specify maxValue for slider, otherwise there will be no limits */
   maxValue: number,
+  /** Specify minValue for slider, otherwise there will be no limits */
   minValue: number
+  /** Title to be presented on the left of slider */
   title: string | StringFunction,
+  /** Default slider value at start */
   currentValue?: number,
+  /** Function to be called after every value change */
   notifyOnChange?: StringToVoid,
+  /** Function to be called after slide action is ended */
   slideDidEnd?: VoidFunction,
+  /** Function to be called after slide action is ended */
   sizeH?: number,
+  /** Name of Icon, should match string from Icon components */
   icon?: string,
+  /** Function to be called if user clicks on Icon */
   iconClick?: AnyToVoid
 }
 
@@ -43,7 +53,7 @@ export interface IValueSliderState {
 @Radium
 export default class ValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
   constructor(props: IValueSliderProps) {
-    super();  
+    super();
     const max: number = props.maxValue;
     const min: number = props.minValue;
     this.state = {

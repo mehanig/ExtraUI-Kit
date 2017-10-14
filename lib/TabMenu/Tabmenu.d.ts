@@ -2,9 +2,6 @@ import * as React from "react";
 export declare type StringFunction = () => string;
 export declare type StringToVoid = (f: string | number) => void;
 export interface ITabMenuProps {
-    name: string;
-    children?: React.ReactChild;
-    className?: string;
     values: [string];
     disabled?: any;
     textValues?: [string | StringFunction];
@@ -14,7 +11,6 @@ export interface ITabMenuProps {
     onClick?: any;
 }
 export interface ITabMenuState {
-    name: string;
     isDisabled?: boolean;
     values: [string];
     textValues: [string | StringFunction];

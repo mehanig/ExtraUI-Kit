@@ -9,20 +9,25 @@ export type StringFunction = () => string;
 export type StringToVoid = (f: string | number) => void;
 
 export interface ITabMenuProps {
-  name: string,
-  children?: React.ReactChild,
-  className?: string,
+  /** Each containing `Tab` component should have one of this values specified as value.
+   * List of available values, if `textValues` list not specified, this array will be used both for displaying
+   * text at tabs and for values */
   values: [string],
+  /** Specify if tabs should be non-clickable */
   disabled?: any,
+  /** If presented, textValues will be used for displaying text at TabMenu header */
   textValues?: [string | StringFunction],
+  /** Value of selected tab */
   selectedOption?: string,
+  /** Title of TabMenu */
   title?: string,
+  /** Function to be called after every selected tab change */
   notifyOnChange?: StringToVoid,
+  /** Function to be called when clicked on every Tab */
   onClick?: any
 }
 
 export interface ITabMenuState {
-  name: string
   isDisabled?: boolean,
   values: [string],
   textValues: [string | StringFunction],
@@ -30,6 +35,9 @@ export interface ITabMenuState {
   selectedOption?: string,
 }
 
+/**
+ * Menu component with multiple tabs
+ */
 @Radium
 export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
   constructor(props: ITabMenuProps) {
@@ -37,7 +45,6 @@ export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuStat
     this.state = {
       values: props.values,
       isDisabled: !!props.disabled,
-      name: props.name,
       textValues: props.textValues ? props.textValues : props.values,
       selectedOption: props.selectedOption,
     };

@@ -7,9 +7,9 @@ Set of independent React styled components made to mimic Adobe AfterEffects user
 ### Documentation
 Available at: ---
 
-Or in: `./doc`
+Or in: `./styleguide`
 
-Can be generated using: `./node_modules/.bin/esdoc`
+Can be generated using: `npm run styleguide:build`
 
 ### Codestyle
 

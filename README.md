@@ -70,6 +70,7 @@ with open("YourPngImageInTXT.txt", "w") as image_out:
 ```
 
 ### How to develop
+- contact us for more details
 
 #### Notes:
 

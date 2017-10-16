@@ -5,7 +5,7 @@ exports.Checkbox = require("./lib/Checkbox/Checkbox").Checkbox;
 exports.TabMenu = require("./lib/TabMenu/TabMenu").TabMenu;
 exports.Tab = require("./lib/TabMenu/Tab");
 
-exports.Icons = {}
+exports.Icons = {};
 
 exports.Icons.SquareIconActive = require("./lib/Icons/SquareIcon").SquareIconActive;
 exports.Icons.SquareIconInactive = require("./lib/Icons/SquareIcon").SquareIconInactive;

@@ -17,7 +17,6 @@ run tslint from main directory
 
 `tslint src/**/*.ts{,x} --fix` 
 
-
 ## List of components
 
 
@@ -69,3 +68,9 @@ with open("YourPngImage.png", "rb") as image_file:
 with open("YourPngImageInTXT.txt", "w") as image_out:
     image_out.write(encoded_string)
 ```
+
+### How to develop
+
+#### Notes:
+
+- use `Typescript 2.3.4` for compiling project

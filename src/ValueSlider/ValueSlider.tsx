@@ -113,23 +113,24 @@ export default class ValueSlider extends React.Component<IValueSliderProps, IVal
           />
         </span>
       );
-    const IconComponentOpt = this.props.icon ? <Icons type={this.props.icon}/> : false;
-    const IconComponentWithClick = this.props.icon && this.props.iconClick ?
-      (
+    let IconComponent = this.props.icon ? <Icons type={this.props.icon}/> : null;
+    if (this.props.iconClick) {
+      IconComponent = (
         <span
           style={{cursor: "pointer"}}
           onClick={this.handleIconClick}
         >
-          {IconComponentOpt}
+          {IconComponent}
         </span>
-      )
-      : {IconComponentOpt};
+      );
+    }
+    const IconComponentNoClick = this.props.icon && !this.props.iconClick ? <Icons type={this.props.icon}/> : null;
     return (
       <div>
         <Radium.StyleRoot>
           <div style={mainBase}>
             <span style={[css.Title]}>{this.state.title}</span>
-            {IconComponentWithClick && IconComponentOpt ? IconComponentWithClick : null}
+            {IconComponent}
             {!this.state.isEditBoxMounted ? noEditBoxSlider : EditBoxSlider}
           </div>
         </Radium.StyleRoot>

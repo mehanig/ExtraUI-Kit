@@ -34,10 +34,15 @@ const Draggable: ICSSProperties = {
   "minWidth": "40px",
   "maxWidth": "40px",
   "boxSizing": "border-box",
+  // Adjust focus here
+  // ":focus": {
+  //   "outlineColor": "white"
+  // }
 };
 
 const InputField: ICSSProperties = {
   width: "30px",
+  fontFamily: "HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial",
 };
 
 export {MainBase, Title, Draggable, InputField};

@@ -42,7 +42,7 @@ export interface ITabMenuState {
 @Radium
 export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuState> {
   constructor(props: ITabMenuProps) {
-    super();
+    super(props);
     this.state = {
       values: props.values,
       isDisabled: !!props.disabled,

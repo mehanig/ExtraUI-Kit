@@ -4,6 +4,7 @@ import Icons from "../Icons/Icons";
 export type AnyFunction = () => any;
 
 export interface IItemProps {
+  value: string,
   children?: React.ReactChild,
   className?: string,
   icon?: string,

@@ -1,7 +1,7 @@
-ItemGroup example:
+Item example:
 
 ```jsx
-    <Item icon="AngleIcon">
+    <Item icon="AngleIcon" value="Item element">
       Item element. It's not usefull without ItemGroup
     </Item>
 ```

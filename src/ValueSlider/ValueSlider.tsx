@@ -53,7 +53,7 @@ export interface IValueSliderState {
 @Radium
 export default class ValueSlider extends React.Component<IValueSliderProps, IValueSliderState> {
   constructor(props: IValueSliderProps) {
-    super();
+    super(props);
     const max: number = props.maxValue;
     const min: number = props.minValue;
     this.state = {
@@ -81,7 +81,7 @@ export default class ValueSlider extends React.Component<IValueSliderProps, IVal
   }
 
   public render() {
-    const mainBase: [ICSSProperties] =
+    const mainBase: ICSSProperties[] =
       this.props.sizeH ? [css.MainBase, {width: `${this.props.sizeH}px`}] : [css.MainBase];
     const noEditBoxSlider =
       (

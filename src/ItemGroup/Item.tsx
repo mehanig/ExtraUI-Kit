@@ -13,7 +13,7 @@ export interface IItemProps {
 
 export default class Tab extends React.Component<IItemProps, {}> {
   constructor(props: IItemProps) {
-    super();
+    super(props);
   }
   public render() {
     const Icon =  this.props.icon ? <Icons type={this.props.icon}/> : null;

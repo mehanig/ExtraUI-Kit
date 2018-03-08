@@ -29,7 +29,7 @@ export interface ICheckboxState {
 @Radium
 export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   constructor(props: ICheckboxProps) {
-    super();
+    super(props);
     this.state = {
       name: props.name,
       isDisabled: props.disabled,

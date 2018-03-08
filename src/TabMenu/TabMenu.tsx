@@ -74,7 +74,7 @@ export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuStat
           <span>{this.state.textValues[index]}</span>
         );
       return (
-        <span key={index} value={itemValue} style={styleTab} onClick={this.onTabClick}>
+        <span key={index} data-value={itemValue} style={styleTab} onClick={this.onTabClick}>
           {tabContent}
         </span>
       );
@@ -112,7 +112,7 @@ export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuStat
   }
 
   private onTabClick(clickEvent: React.MouseEvent<HTMLSpanElement>): void {
-    const safeTypeValue: string = clickEvent.currentTarget.getAttribute("value");
+    const safeTypeValue: string = clickEvent.currentTarget.getAttribute("data-value");
     this.setState({selectedOption: safeTypeValue});
     if (this.props.notifyOnChange) {
       this.props.notifyOnChange(safeTypeValue);

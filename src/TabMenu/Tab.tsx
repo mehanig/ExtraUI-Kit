@@ -9,7 +9,7 @@ export interface ITabProps {
 
 export default class Tab extends React.Component<ITabProps, {}> {
   constructor(props: ITabProps) {
-    super();
+    super(props);
   }
   public render() {
     return (

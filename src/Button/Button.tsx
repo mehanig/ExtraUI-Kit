@@ -25,7 +25,7 @@ export interface IButtonState {
 @Radium
 export default class Button extends React.Component<IButtonProps, IButtonState> {
   constructor(props: IButtonProps) {
-    super();
+    super(props);
     this.state = {
       buttonText: props.text || "Button",
       isDisabled: !!props.disabled,
@@ -35,7 +35,7 @@ export default class Button extends React.Component<IButtonProps, IButtonState> 
 
   public render() {
     const onClick: any = this.state.isDisabled ? null : this.onClickHandler;
-    const stylesArr: [ICSSProperties] = (this.props.UIType === "AE") ?
+    const stylesArr: ICSSProperties[] = (this.props.UIType === "AE") ?
       this.state.isDisabled ? [AEButton, AECssDisabled] : [AEButton, AECssActive]
     :
       this.state.isDisabled ? [CssBase, CssDisabled] : [CssBase, CssActive];

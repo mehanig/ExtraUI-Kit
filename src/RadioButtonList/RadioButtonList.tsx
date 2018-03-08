@@ -40,7 +40,7 @@ export interface IRadioButtonState {
 @Radium
 export default class RadiobuttonList extends React.Component<IRadioButtonProps, IRadioButtonState> {
   constructor(props: IRadioButtonProps) {
-    super();
+    super(props);
     this.state = {
       values: props.values,
       isDisabled: !!props.disabled,
@@ -54,9 +54,9 @@ export default class RadiobuttonList extends React.Component<IRadioButtonProps, 
   }
 
   public render() {
-    const stylesLiArr: [ICSSProperties] =
+    const stylesLiArr: ICSSProperties[] =
       this.state.isDisabled ? [css.LiBase, css.LiDisabled] : [css.LiBase];
-    const cssInputArr: [ICSSProperties] =
+    const cssInputArr: ICSSProperties[] =
       this.state.isDisabled ? [css.Input, css.InputDisabled] : [css.Input];
     const liElements = this.state.values.map((itemValue, index) => {
       return (
@@ -71,7 +71,7 @@ export default class RadiobuttonList extends React.Component<IRadioButtonProps, 
           />
           <span
             style={[css.Text]}
-            value={itemValue}
+            data-value={itemValue}
             onClick={this.handleLiClick}
           >
             {this.state.textValues[index]}
@@ -109,7 +109,7 @@ export default class RadiobuttonList extends React.Component<IRadioButtonProps, 
   }
 
   private handleLiClick(clickEvent: React.MouseEvent<HTMLSpanElement>): void {
-    const safeSearchTypeValue: string = clickEvent.currentTarget.getAttribute("value");
+    const safeSearchTypeValue: string = clickEvent.currentTarget.getAttribute("data-value");
     this._updateStateAndNotify(safeSearchTypeValue);
   }
 }

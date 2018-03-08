@@ -62,7 +62,7 @@ export default class TabMenu extends React.Component<ITabMenuProps, ITabMenuStat
       }
     });
     const tabs: JSX.Element[] = this.state.values.map((itemValue, index) => {
-      const styleTab: [ICSSProperties] = this.state.selectedOption === itemValue ?
+      const styleTab = this.state.selectedOption === itemValue ?
         [css.tabBase, css.selectedTab] : [css.tabBase, css.notSelectedTab];
 
       const tabElement = (allTabs[index] as JSX.Element);

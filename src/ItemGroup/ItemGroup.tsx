@@ -1,5 +1,7 @@
 import * as Radium from "radium";
 import * as React from "react";
+import * as css from "./css_eb_itemgroup";
+import AnimateHeight from "react-animate-height";
 import Item from "./Item";
 
 export type AnyFunction = () => any;
@@ -11,14 +13,15 @@ export interface IItemGroupProps {
   icon?: string,
   onTitleClick?: AnyFunction,
   title?: string;
-  items: [Item],
+  items: Item[],
   /** Property to filter every item in a list based on item.value.
    *
    *  String : will search for all items with string value inside
    *  Boolean : will return full list or empty list
    *  Function : fill draw item baset on the result of applied function
    */
-  filterContent?: string | BoolFunction | boolean
+  filterContent?: string | BoolFunction | boolean,
+  isFolded?: boolean
 }
 
 export interface IItemGroupState {
@@ -30,7 +33,9 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
   constructor(props: IItemGroupProps) {
     super(props);
     const filter = this.createFilter(props);
-    this.state = { ...this.state, filterContent: filter };
+    this.state = {
+      filterContent: filter,
+    };
   }
 
   public render() {
@@ -42,17 +47,26 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
         </div>
       ),
     );
+    const isFolded = this.props.hasOwnProperty("isFolded") ? this.props.isFolded : false;
+    const height = isFolded ? "0" : "auto";
     return (
       <div>
         <div onClick={this.props.onTitleClick}>{this.props.title ? this.props.title : null}</div>
-        {cells}
+        <AnimateHeight
+          duration={500}
+          height={height}
+        >
+          {cells}
+        </AnimateHeight>
         {this.props.children}
       </div>
     );
   }
 
   public componentWillReceiveProps(nextProps) {
-    this.setState({...this.state, filterContent: this.createFilter(nextProps)});
+    this.setState({
+      ...this.state,
+      filterContent: this.createFilter(nextProps)});
   }
 
   private createFilter(props) {

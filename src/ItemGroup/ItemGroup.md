@@ -4,25 +4,39 @@
     constructor() {
       super();
       this.state = {
-        display: true
+        displayViaFilter: true,
+        isFolded: false
       };
-      this.handleClick = this.handleClick.bind(this);
+      this.changeFilter = this.changeFilter.bind(this);
+      this.changeFolding = this.changeFolding.bind(this);
     }
 
     render() {
       const { selectedKey } = this.state;
       return (
+        <div>
         <ItemGroup
-          title="My Group"
-          onTitleClick={this.handleClick}
-          filterContent={this.state.display}
+          title="Group with folding on title"
+          onTitleClick={this.changeFolding}
+          isFolded={this.state.isFolded}
           items={[<Item>Item 1</Item>, <Item>Item 2</Item>, <Item>Item 3</Item>]}
         ></ItemGroup>
+        <ItemGroup
+          title="Group folding via Filter"
+          onTitleClick={this.changeFilter}
+          filterContent={this.state.displayViaFilter}
+          items={[<Item>Item 1</Item>, <Item>Item 2</Item>, <Item>Item 3</Item>]}
+        ></ItemGroup>
+        </div>
       );
     }
 
-    handleClick() {
-      this.setState({...this.state, display: !this.state.display});
+    changeFilter() {
+      this.setState({...this.state, displayViaFilter: !this.state.displayViaFilter});
+    }
+
+    changeFolding() {
+      this.setState({...this.state, isFolded: !this.state.isFolded})
     }
   }
   

@@ -1,3 +1,9 @@
+<style>
+  .extraStylesForExamlpes {
+    border: 2px solid black;
+  }
+</style>
+
 ```jsx
 
   class ExampleItemGroup extends React.Component {
@@ -14,7 +20,7 @@
     render() {
       const { selectedKey } = this.state;
       return (
-        <div>
+        <div className="extraStylesForExamlpes">
         <ItemGroup
           title="Group with folding on title"
           onTitleClick={this.changeFolding}

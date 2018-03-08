@@ -12,9 +12,13 @@ import { SpacingX, SpacingY} from "./SpacingIcons";
 import { SpiralIcon } from "./SpiralIcon";
 import { SquareIconActive, SquareIconInactive } from "./SquareIcon";
 
+import { IIconProps } from "../Interfaces";
+
 export interface IIconsProps {
   /** Name of Icon, all available names listed in documentation */
   type: string
+  /** Extra className to be added for Icon */
+  className?: string
 }
 
 /**
@@ -22,7 +26,7 @@ export interface IIconsProps {
  */
 export default class Icons extends React.Component<IIconsProps, {}> {
 
-  ICON_MAPPING = {
+  private ICON_MAPPING = {
     AngleIcon,
     ColumnIconActive,
     ColumnIconInactive,
@@ -46,9 +50,8 @@ export default class Icons extends React.Component<IIconsProps, {}> {
     SquareIconInactive,
   };
 
-
   public render() {
     const Component = this.ICON_MAPPING[this.props.type];
-    return <Component/>;
+    return <Component className={this.props.className}/>;
   }
 }

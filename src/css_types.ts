@@ -43,6 +43,10 @@ interface ICSSProperties {
   opacity?: string | number,
   transition?: string,
   transform?: string,
+  position?: string,
+  caretColor?: string
+  left?: string,
+  right?: string
 }
 
 export {ICSSProperties};

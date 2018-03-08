@@ -50,8 +50,14 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
     const isFolded = this.props.hasOwnProperty("isFolded") ? this.props.isFolded : false;
     const height = isFolded ? "0" : "auto";
     return (
-      <div>
-        <div onClick={this.props.onTitleClick}>{this.props.title ? this.props.title : null}</div>
+      <div style={[css.ItemGroupMain]}>
+        <div
+          className="extraui-kit__itemGroup-title"
+          style={[css.ItemGroupTitle]}
+          onClick={this.props.onTitleClick}
+        >
+          {this.props.title ? this.props.title : null}
+        </div>
         <AnimateHeight
           duration={500}
           height={height}
@@ -75,7 +81,9 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
       filter = () => true;
     } else {
       if (typeof props.filterContent === "string") {
-        filter = (s) => s.indexOf(filter) !== -1;
+        filter = (s) => {
+          return s.props.value.indexOf(this.props.filterContent) !== -1;
+        };
       } else if (typeof props.filterContent === "function") {
         filter = props.filterContent;
       } else if (typeof props.filterContent === "boolean") {

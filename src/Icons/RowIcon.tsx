@@ -1,9 +1,10 @@
 import * as React from "react";
+import { IIconProps } from "../Interfaces";
 
 const base64Active = "base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAIElEQVQokWO8cOHCfwYKABMlmgcHYBwNg9EwYBgMYQAA3esNyX25hI0AAAAASUVORK5CYII=";
 const base64Inactive = "base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAH0lEQVQokWPMzMz8z0ABYKJE8+AAjKNhMBoGDIMhDAAYbAj1EJ3h2AAAAABJRU5ErkJggg==";
 
-class RowIconActive extends React.Component<{}, {}> {
+class RowIconActive extends React.Component<IIconProps, {}> {
   public render() {
     return (
       <img src={"data:image/png;" + base64Active}/>
@@ -11,7 +12,7 @@ class RowIconActive extends React.Component<{}, {}> {
   }
 }
 
-class RowIconInactive extends React.Component<{}, {}> {
+class RowIconInactive extends React.Component<IIconProps, {}> {
   public render() {
     return (
       <img src={"data:image/png;" + base64Inactive}/>

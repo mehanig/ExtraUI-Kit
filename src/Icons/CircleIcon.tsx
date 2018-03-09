@@ -15,7 +15,7 @@ class CircleIconActive extends React.Component<IIconProps, {}> {
 class CircleIconInactive extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64Inactive}/>
+      <img className={this.props.className} src={"data:image/png;" + base64Inactive}/>
     );
   }
 }

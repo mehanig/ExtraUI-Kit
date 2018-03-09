@@ -9,7 +9,7 @@ const base64LInactive = "base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAA
 class RotationsRActive extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64RActive}/>
+      <img className={this.props.className} src={"data:image/png;" + base64RActive}/>
     );
   }
 }
@@ -17,7 +17,7 @@ class RotationsRActive extends React.Component<IIconProps, {}> {
 class RotationsRInactive extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64RInactive}/>
+      <img className={this.props.className} src={"data:image/png;" + base64RInactive}/>
     );
   }
 }
@@ -25,7 +25,7 @@ class RotationsRInactive extends React.Component<IIconProps, {}> {
 class RotationsLActive extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64LActive}/>
+      <img className={this.props.className} src={"data:image/png;" + base64LActive}/>
     );
   }
 }
@@ -33,7 +33,7 @@ class RotationsLActive extends React.Component<IIconProps, {}> {
 class RotationsLInactive extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64LInactive}/>
+      <img className={this.props.className} src={"data:image/png;" + base64LInactive}/>
     );
   }
 }

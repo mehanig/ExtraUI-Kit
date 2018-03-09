@@ -72,5 +72,14 @@
   <div>
     <Icons type="TriangleArrowDown"/> TriangleArrowDown
   </div>
+  <div>
+    <Icons type="SearchIcon"/> SearchIcon
+  </div>
+  <div>
+    <Icons type="LightBulbIcon"/> LightBulbIcon
+  </div>
+  <div>
+    <Icons type="LightBulbIconActive"/> LightBulbIconActive
+  </div>
 </div>
 ```

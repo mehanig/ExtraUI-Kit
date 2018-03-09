@@ -2,8 +2,6 @@ import * as React from "react";
 import { IIconProps } from "../Interfaces";
 import * as SVGInline from "react-svg-inline";
 
-const base64Active = "base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARBJREFUOBFjYCABpKam2qMrZ0YXwMUHau79////TBMTk09nz549AVPHBGPgo6Gai4BqfjEyMt5BVsuIzMHGRtbMzMwcMnPmzM3I6vAaQEgzyCCcXkDS/B9ocxa6zTBXYHUBTDPQv/+AAccEpG9wcHAYTJ48+SdMI4zGcAFMM1ABKMAigPQVoCEaP378KIdpQqZRDEDWDAqwWbNmrQYakg7U8B+IKwoKCgSQNYPYcAPQNcP8PHv27GNAQ3YDXcH55cuXYKwG4NIMUww0YBmU7Q8Tg9GMKSkpXUBOKRD/YmFhieXj49sOk4TRQP+rffv27QyQf0tISMgEJg6iQQaA/Ec2YAHq/Ax0IgPQj2QbMrAaAfP8g9jKZksbAAAAAElFTkSuQmCC";
-
 const svgSourceTriangleRight = `
 <svg width="6px" height="7px" viewBox="0 0 6 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -42,7 +40,7 @@ const svgSourceTriangleDown = `
 class TriangleArrowRight extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <SVGInline.default svg={svgSourceTriangleRight}/>
+      <SVGInline.default className={this.props.className} svg={svgSourceTriangleRight}/>
     );
   }
 }
@@ -50,7 +48,7 @@ class TriangleArrowRight extends React.Component<IIconProps, {}> {
 class TriangleArrowRightHover extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <SVGInline.default svg={svgSourceTriangleRightHover}/>
+      <SVGInline.default className={this.props.className} svg={svgSourceTriangleRightHover}/>
     );
   }
 }
@@ -58,7 +56,7 @@ class TriangleArrowRightHover extends React.Component<IIconProps, {}> {
 class TriangleArrowDown extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <SVGInline.default svg={svgSourceTriangleDown}/>
+      <SVGInline.default className={this.props.className} svg={svgSourceTriangleDown}/>
     );
   }
 }

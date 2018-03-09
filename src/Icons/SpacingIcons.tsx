@@ -7,7 +7,7 @@ const base64Y = "base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IA
 class SpacingX extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64X}/>
+      <img className={this.props.className} src={"data:image/png;" + base64X}/>
     );
   }
 }
@@ -15,7 +15,7 @@ class SpacingX extends React.Component<IIconProps, {}> {
 class SpacingY extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img style={{minWidth: "12px"}} src={"data:image/png;" + base64Y}/>
+      <img className={this.props.className} style={{minWidth: "12px"}} src={"data:image/png;" + base64Y}/>
     );
   }
 }

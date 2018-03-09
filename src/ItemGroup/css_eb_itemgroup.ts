@@ -22,6 +22,12 @@ const ItemMain: ICSSProperties = {
     backgroundColor: "#404040",
   },
   "borderBottom": "1px solid #1f1f1f",
+  "position": "relative",
+};
+
+const ItemMainIcon: ICSSProperties = {
+  position: "absolute",
+  left: "22px",
 };
 
 const ItemGroupTitle: ICSSProperties = {
@@ -38,4 +44,4 @@ const ItemGroupTitleIcon: ICSSProperties = {
   paddingRight: "5px",
 };
 
-export { ItemGroupMain, ItemMain, ItemGroupTitle, ItemGroupTitleIcon};
+export { ItemGroupMain, ItemMain, ItemMainIcon, ItemGroupTitle, ItemGroupTitleIcon};

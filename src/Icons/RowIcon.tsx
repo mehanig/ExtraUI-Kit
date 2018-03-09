@@ -7,7 +7,7 @@ const base64Inactive = "base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAH
 class RowIconActive extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64Active}/>
+      <img className={this.props.className} src={"data:image/png;" + base64Active}/>
     );
   }
 }
@@ -15,7 +15,7 @@ class RowIconActive extends React.Component<IIconProps, {}> {
 class RowIconInactive extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64Inactive}/>
+      <img className={this.props.className} src={"data:image/png;" + base64Inactive}/>
     );
   }
 }

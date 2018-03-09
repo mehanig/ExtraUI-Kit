@@ -17,7 +17,6 @@ SearchBox example:
       return (
         <div>
           <SearchBox 
-            icon="CircleIconActive" 
             placeholder="type to search..."
             onType={(val) => {this.setState({...this.state, displayViaFilter: val})}}
           >
@@ -27,7 +26,7 @@ SearchBox example:
             onTitleClick={this.changeFolding}
             isFolded={this.state.isFolded}
             filterContent={this.state.displayViaFilter}
-            items={[<Item value="item1">Item 1</Item>, <Item value="item2">Item 2</Item>, <Item value="item3">Item 3</Item>]}
+            items={[<Item value="item1">Item 1</Item>, <Item icon="LightBulbIcon" iconOnHover="LightBulbIconActive" value="item2">Item 2</Item>, <Item value="item3">Item 3</Item>]}
           ></ItemGroup>
         </div>
       );
@@ -44,9 +43,6 @@ SearchBox example:
 
 
   <div>
-    <SearchBox icon="CircleIconActive" placeholder="type to search...">
-    </SearchBox>
-
     <br/>
     <span>Search Box can be combined with ItemGroup:</span>
     <br/>

@@ -5,7 +5,7 @@ const base64 = "base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IAr
 class SpiralIcon extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64}/>
+      <img className={this.props.className} src={"data:image/png;" + base64}/>
     );
   }
 }

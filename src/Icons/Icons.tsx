@@ -12,6 +12,8 @@ import { SpacingX, SpacingY} from "./SpacingIcons";
 import { SpiralIcon } from "./SpiralIcon";
 import { SquareIconActive, SquareIconInactive } from "./SquareIcon";
 import { TriangleArrowRight, TriangleArrowRightHover, TriangleArrowDown } from "./TriangleArrow";
+import { SearchIcon } from "./SearchIcon";
+import { LightBulbIcon, LightBulbIconActive } from "./LightBulbIcon";
 
 import { IIconProps } from "../Interfaces";
 
@@ -52,6 +54,9 @@ export default class Icons extends React.Component<IIconsProps, {}> {
     TriangleArrowRight,
     TriangleArrowRightHover,
     TriangleArrowDown,
+    SearchIcon,
+    LightBulbIcon,
+    LightBulbIconActive,
   };
 
   public render() {

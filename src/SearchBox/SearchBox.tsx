@@ -32,10 +32,10 @@ export default class SearchBox extends React.Component<ISearchBoxProps, ISearchB
   }
 
   public render() {
-    const Icon =  this.props.icon ? <Icons type={this.props.icon}/> : null;
+    const Icon =  this.props.icon ? <Icons type={this.props.icon}/> : <Icons type="SearchIcon"/>;
 
     // We need to apply padding because of icon being displayed on the left
-    const inputStyle = this.props.icon ? [css.InputWithIconStyle] : [];
+    const inputStyle = [css.InputWithIconStyle];
     return (
       <div className="extraui-kit__searchBox" style={[css.SearchBoxStyle]}>
         <span style={[css.InlinedIcon]}>{Icon}</span>

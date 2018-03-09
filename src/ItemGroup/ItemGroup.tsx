@@ -61,7 +61,6 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
         </div>
       ),
     );
-
     const Icon = this.state.isFolded ? <Icons type="TriangleArrowRight"/> : <Icons type="TriangleArrowDown"/>;
     const animatedCells = (
       <AnimateHeight

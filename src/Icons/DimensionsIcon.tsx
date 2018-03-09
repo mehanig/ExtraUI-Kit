@@ -5,7 +5,7 @@ const base64Active = "base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXN
 class DimensionsIcon extends React.Component<IIconProps, {}> {
   public render() {
     return (
-      <img src={"data:image/png;" + base64Active}/>
+      <img className={this.props.className} src={"data:image/png;" + base64Active}/>
     );
   }
 }

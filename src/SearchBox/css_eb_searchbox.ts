@@ -6,7 +6,7 @@ const InlinedIcon: ICSSProperties = {
 };
 
 const InputWithIconStyle: ICSSProperties = {
-  paddingLeft: "25px",
+  paddingLeft: "20px",
   maxWidth: "100%",
   minWidth: "100%",
   width: "100%",

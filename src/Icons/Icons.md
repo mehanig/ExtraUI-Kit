@@ -63,5 +63,14 @@
   <div>
     <Icons type="SquareIconInactive"/> SquareIconInactive
   </div>
+  <div>
+    <Icons type="TriangleArrowRight"/> TriangleArrowRight
+  </div>
+  <div>
+    <Icons type="TriangleArrowRightHover"/> TriangleArrowRightHover
+  </div>
+  <div>
+    <Icons type="TriangleArrowDown"/> TriangleArrowDown
+  </div>
 </div>
 ```

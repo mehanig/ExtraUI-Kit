@@ -15,12 +15,13 @@ const ItemGroupMain: ICSSProperties = {
 };
 
 const ItemMain: ICSSProperties = {
-  "paddingLeft": "20px",
+  "paddingLeft": "34px",
   "paddingTop": "7px",
   "paddingBottom": "7px",
   ":hover": {
     backgroundColor: "#404040",
   },
+  "borderBottom": "1px solid #1f1f1f",
 };
 
 const ItemGroupTitle: ICSSProperties = {
@@ -29,6 +30,12 @@ const ItemGroupTitle: ICSSProperties = {
   ":hover": {
     backgroundColor: "#505050",
   },
-}
+  "borderBottom": "1px solid #1f1f1f",
+};
 
-export { ItemGroupMain, ItemMain, ItemGroupTitle };
+const ItemGroupTitleIcon: ICSSProperties = {
+  paddingLeft: "5px",
+  paddingRight: "5px",
+};
+
+export { ItemGroupMain, ItemMain, ItemGroupTitle, ItemGroupTitleIcon};

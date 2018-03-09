@@ -12,8 +12,8 @@ const InputWithIconStyle: ICSSProperties = {
   width: "100%",
   boxSizing: "border-box",
   backgroundColor: "#101010",
-  paddingTop: "5px",
-  paddingBottom: "5px",
+  paddingTop: "6px",
+  paddingBottom: "6px",
   caretColor: "white",
   border: "1px solid #4040cc",
   borderRadius: "2px",
@@ -27,7 +27,7 @@ InputWithIconStyle[":focus"] = {
 
 const SearchBoxStyle: ICSSProperties = {
   display: "flex",
-  alignItems: "flex-end",
+  alignItems: "center",
   position: "relative",
 };
 

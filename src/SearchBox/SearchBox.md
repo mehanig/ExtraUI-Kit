@@ -31,7 +31,7 @@ SearchBox example:
           ></ItemGroup>
         </div>
       );
-    s}
+    }
 
     changeFilter() {
       this.setState({...this.state, displayViaFilter: !this.state.displayViaFilter});

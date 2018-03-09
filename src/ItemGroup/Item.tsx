@@ -17,6 +17,9 @@ export interface IItemProps {
 export default class Tab extends React.Component<IItemProps, {}> {
   constructor(props: IItemProps) {
     super(props);
+    this.state = {
+      myVal: "10px",
+    };
   }
   public render() {
     const Icon =  this.props.icon ? <Icons type={this.props.icon}/> : null;

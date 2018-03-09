@@ -3,6 +3,8 @@ import * as React from "react";
 import * as css from "./css_eb_itemgroup";
 import AnimateHeight from "react-animate-height";
 import Item from "./Item";
+import Icons from "../Icons/Icons";
+import { ISearchBoxProps } from "../SearchBox/SearchBox";
 
 export type AnyFunction = () => any;
 export type BoolFunction = () => boolean;
@@ -25,16 +27,20 @@ export interface IItemGroupProps {
 }
 
 export interface IItemGroupState {
-  filterContent?: BoolFunction
+  filterContent?: BoolFunction,
+  isFolded: boolean,
+  itemHeight: number,
 }
 
 @Radium
 export default class ItemGroup extends React.Component<IItemGroupProps, IItemGroupState> {
   constructor(props: IItemGroupProps) {
     super(props);
-    const filter = this.createFilter(props);
+    const filterContent = this.createFilter(props);
     this.state = {
-      filterContent: filter,
+      isFolded: props.isFolded,
+      filterContent,
+      itemHeight: 0,
     };
   }
 
@@ -42,13 +48,29 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
     const itemsFiltered = this.props.items.filter(this.state.filterContent);
     const cells = itemsFiltered.map((item, idx) =>
       (
-        <div key={idx}>
+        <div
+          key={idx}
+          ref={(cellDivElement) => {
+                if (cellDivElement && cellDivElement.clientHeight !== this.state.itemHeight) {
+                  this.setState({...this.state, itemHeight: cellDivElement.clientHeight});
+                }
+              }
+            }
+        >
           {item}
         </div>
       ),
     );
-    const isFolded = this.props.hasOwnProperty("isFolded") ? this.props.isFolded : false;
-    const height = isFolded ? "0" : "auto";
+
+    const Icon = this.state.isFolded ? <Icons type="TriangleArrowRight"/> : <Icons type="TriangleArrowDown"/>;
+    const animatedCells = (
+      <AnimateHeight
+        duration={500}
+        height={this.state.isFolded ? "0" : this.state.itemHeight * cells.length}
+      >
+        {cells}
+      </AnimateHeight>
+    );
     return (
       <div style={[css.ItemGroupMain]}>
         <div
@@ -56,23 +78,34 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
           style={[css.ItemGroupTitle]}
           onClick={this.props.onTitleClick}
         >
+          <span className="extraui-kit__itemGroup-title-icon" style={[css.ItemGroupTitleIcon]}>
+            {Icon}
+          </span>
           {this.props.title ? this.props.title : null}
         </div>
-        <AnimateHeight
-          duration={500}
-          height={height}
-        >
-          {cells}
-        </AnimateHeight>
+        {animatedCells}
         {this.props.children}
       </div>
     );
   }
 
-  public componentWillReceiveProps(nextProps) {
+  public componentWillReceiveProps(nextProps: IItemGroupProps) {
+    const filterContent = this.createFilter(nextProps);
+    // Tricky place, we need to handle cases if we removed the filter (eq. cleaned SearchBox).
+    // State and props are out of sync in this case
+    const changeFromClick = nextProps.isFolded !== this.props.isFolded ? !this.state.isFolded : nextProps.isFolded;
     this.setState({
       ...this.state,
-      filterContent: this.createFilter(nextProps)});
+      isFolded: this.isFilterChanged(nextProps) ? false : changeFromClick,
+      filterContent,
+    });
+  }
+
+  // We unfold all the ItemGroups after filter changed
+  private isFilterChanged(nextProps) {
+    if (this.props.filterContent !== nextProps.filterContent) {
+      return true;
+    }
   }
 
   private createFilter(props) {

@@ -27,12 +27,6 @@
           isFolded={this.state.isFolded}
           items={[<Item>Item 1</Item>, <Item>Item 2</Item>, <Item>Item 3</Item>]}
         ></ItemGroup>
-        <ItemGroup
-          title="Group folding via Filter"
-          onTitleClick={this.changeFilter}
-          filterContent={this.state.displayViaFilter}
-          items={[<Item>Item 1</Item>, <Item>Item 2</Item>, <Item>Item 3</Item>]}
-        ></ItemGroup>
         </div>
       );
     }

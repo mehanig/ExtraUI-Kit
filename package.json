@@ -1,6 +1,6 @@
 {
   "name": "extraui-kit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "devDependencies": {
     "@types/node": "7.0.31",
     "@types/react": "^16.0.40",
@@ -28,6 +28,7 @@
   ],
   "main": "main.js",
   "dependencies": {
+    "cacache": "^10.0.4",
     "radium": "^0.19.1",
     "react-animate-height": "^0.10.10",
     "react-svg-inline": "^2.1.0",

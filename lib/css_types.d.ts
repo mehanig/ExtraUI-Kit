@@ -39,5 +39,13 @@ interface ICSSProperties {
     paddingRight?: string;
     paddingTop?: string;
     paddingBottom?: string;
+    visibility?: string;
+    opacity?: string | number;
+    transition?: string;
+    transform?: string;
+    position?: string;
+    caretColor?: string;
+    left?: string;
+    right?: string;
 }
 export { ICSSProperties };

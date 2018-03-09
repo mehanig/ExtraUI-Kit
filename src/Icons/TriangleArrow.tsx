@@ -1,6 +1,6 @@
 import * as React from "react";
-import { IIconProps } from "../Interfaces";
 import * as SVGInline from "react-svg-inline";
+import { IIconProps } from "../Interfaces";
 
 const svgSourceTriangleRight = `
 <svg width="6px" height="7px" viewBox="0 0 6 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

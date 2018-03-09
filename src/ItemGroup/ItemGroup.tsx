@@ -54,8 +54,7 @@ export default class ItemGroup extends React.Component<IItemGroupProps, IItemGro
                 if (cellDivElement && cellDivElement.clientHeight !== this.state.itemHeight) {
                   this.setState({...this.state, itemHeight: cellDivElement.clientHeight});
                 }
-              }
-            }
+              }}
         >
           {item}
         </div>

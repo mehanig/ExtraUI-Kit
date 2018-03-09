@@ -1,6 +1,6 @@
 {
   "name": "extraui-kit",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "devDependencies": {
     "@types/node": "7.0.31",
     "@types/react": "^16.0.40",

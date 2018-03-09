@@ -5,6 +5,9 @@ import Checkbox from "./lib/Checkbox/Checkbox";
 import TabMenu from "./lib/TabMenu/Tabmenu";
 import Tab from "./lib/TabMenu/Tab";
 import Icons from "./lib/Icons/Icons";
+import SearchBox from "./lib/SearchBox/SearchBox";
+import Item from "./lib/ItemGroup/Item";
+import ItemGroup from "./lib/ItemGroup/ItemGroup";
 
 export {
     Button,
@@ -13,5 +16,8 @@ export {
     Checkbox,
     TabMenu,
     Tab,
-    Icons
+    Icons,
+    SearchBox,
+    Item,
+    ItemGroup
 }

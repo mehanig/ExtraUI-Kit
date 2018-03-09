@@ -1,6 +1,6 @@
 import * as React from "react";
-import { IIconProps } from "../Interfaces";
 import * as SVGInline from "react-svg-inline";
+import { IIconProps } from "../Interfaces";
 
 const svgSourceSearchIcon = `
 <?xml version="1.0" encoding="UTF-8"?>

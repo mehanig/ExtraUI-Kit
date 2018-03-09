@@ -1,8 +1,9 @@
 import * as React from "react";
-declare class SquareIconActive extends React.Component<{}, {}> {
+import { IIconProps } from "../Interfaces";
+declare class SquareIconActive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
-declare class SquareIconInactive extends React.Component<{}, {}> {
+declare class SquareIconInactive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
 export { SquareIconActive, SquareIconInactive };

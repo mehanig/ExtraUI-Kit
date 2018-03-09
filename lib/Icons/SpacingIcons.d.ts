@@ -1,8 +1,9 @@
 import * as React from "react";
-declare class SpacingX extends React.Component<{}, {}> {
+import { IIconProps } from "../Interfaces";
+declare class SpacingX extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
-declare class SpacingY extends React.Component<{}, {}> {
+declare class SpacingY extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
 export { SpacingX, SpacingY };

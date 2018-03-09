@@ -1,5 +1,6 @@
 import * as React from "react";
-declare class RotateIcon extends React.Component<{}, {}> {
+import { IIconProps } from "../Interfaces";
+declare class RotateIcon extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
 export { RotateIcon };

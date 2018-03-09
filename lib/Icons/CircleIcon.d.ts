@@ -1,8 +1,9 @@
 import * as React from "react";
-declare class CircleIconActive extends React.Component<{}, {}> {
+import { IIconProps } from "../Interfaces";
+declare class CircleIconActive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
-declare class CircleIconInactive extends React.Component<{}, {}> {
+declare class CircleIconInactive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
 export { CircleIconActive, CircleIconInactive };

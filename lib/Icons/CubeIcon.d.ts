@@ -1,8 +1,9 @@
 import * as React from "react";
-declare class CubeIconActive extends React.Component<{}, {}> {
+import { IIconProps } from "../Interfaces";
+declare class CubeIconActive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
-declare class CubeIconInactive extends React.Component<{}, {}> {
+declare class CubeIconInactive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
 export { CubeIconActive, CubeIconInactive };

@@ -1,14 +1,15 @@
 import * as React from "react";
-declare class RotationsRActive extends React.Component<{}, {}> {
+import { IIconProps } from "../Interfaces";
+declare class RotationsRActive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
-declare class RotationsRInactive extends React.Component<{}, {}> {
+declare class RotationsRInactive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
-declare class RotationsLActive extends React.Component<{}, {}> {
+declare class RotationsLActive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
-declare class RotationsLInactive extends React.Component<{}, {}> {
+declare class RotationsLInactive extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
 export { RotationsRActive, RotationsRInactive, RotationsLActive, RotationsLInactive };

@@ -1,5 +1,6 @@
 import * as React from "react";
-declare class RadiusIcon extends React.Component<{}, {}> {
+import { IIconProps } from "../Interfaces";
+declare class RadiusIcon extends React.Component<IIconProps, {}> {
     render(): JSX.Element;
 }
 export { RadiusIcon };

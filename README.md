@@ -71,7 +71,3 @@ with open("YourPngImageInTXT.txt", "w") as image_out:
 
 ### How to develop
 - contact us for more details
-
-#### Notes:
-
-- use `Typescript 2.3.4` for compiling project
